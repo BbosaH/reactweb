@@ -1,5 +1,6 @@
 var React = require('react');
 var ReactDOM= require('react-dom');
+var TopLeft = require('TopLeft');
 import 'bootstrap/dist/css/bootstrap.css';
 
 
@@ -7,6 +8,7 @@ ReactDOM.render(
   <div className="container">
     <div className="row">
       <div className="col-sm-4">
+        <TopLeft></TopLeft>
       </div>
       <div className="col-sm-4">
         <h1>React Boilerplate</h1>

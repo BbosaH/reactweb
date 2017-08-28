@@ -17,7 +17,7 @@ module.exports =
 
     alias : {
 
-      //Utilities: path.resolve(__dirname, 'src/utilities/'),
+      TopLeft: path.resolve(__dirname, 'app/components/container.jsx/'),
       //Templates: path.resolve(__dirname, 'src/templates/')
 
     },
@@ -27,7 +27,7 @@ module.exports =
 
     loaders: [
       {
-        test: /.jsx?$/,
+        test: /\.jsx?$/,
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
