@@ -5,33 +5,20 @@
  * @Project: yulu
  * @Filename: app.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-11T11:13:03+03:00
+ * @Last modified time: 2017-10-11T17:10:49+03:00
  */
 
 
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import Container from 'Container'
+import HomeContainer from 'HomeContainer'
 import 'bootstrap/dist/css/bootstrap.css';
 
 
+
 ReactDOM.render(
-  <div className="container">
-    <div className="row">
-      <div className="col-sm-4">
-        <Container></Container>
-      </div>
-      <div className="col-sm-4">
-        <h1>React Boilerplate</h1>
-        <label>React Boilerplate</label>
-        <input type="text"/>
-        <button className="btn btn-success">hi</button>
-      </div>
-      <div className="col-sm-4">
-      </div>
-    </div>
-  </div>
+  <HomeContainer/>
  ,
   document.getElementById('app')
 );

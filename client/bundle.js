@@ -9795,9 +9795,9 @@ var _reactDom = __webpack_require__(100);
 
 var _reactDom2 = _interopRequireDefault(_reactDom);
 
-var _Container = __webpack_require__(186);
+var _HomeContainer = __webpack_require__(186);
 
-var _Container2 = _interopRequireDefault(_Container);
+var _HomeContainer2 = _interopRequireDefault(_HomeContainer);
 
 __webpack_require__(82);
 
@@ -9810,43 +9810,10 @@ function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { de
  * @Project: yulu
  * @Filename: app.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-11T11:13:03+03:00
+ * @Last modified time: 2017-10-11T17:10:49+03:00
  */
 
-_reactDom2.default.render(_react2.default.createElement(
-  'div',
-  { className: 'container' },
-  _react2.default.createElement(
-    'div',
-    { className: 'row' },
-    _react2.default.createElement(
-      'div',
-      { className: 'col-sm-4' },
-      _react2.default.createElement(_Container2.default, null)
-    ),
-    _react2.default.createElement(
-      'div',
-      { className: 'col-sm-4' },
-      _react2.default.createElement(
-        'h1',
-        null,
-        'React Boilerplate'
-      ),
-      _react2.default.createElement(
-        'label',
-        null,
-        'React Boilerplate'
-      ),
-      _react2.default.createElement('input', { type: 'text' }),
-      _react2.default.createElement(
-        'button',
-        { className: 'btn btn-success' },
-        'hi'
-      )
-    ),
-    _react2.default.createElement('div', { className: 'col-sm-4' })
-  )
-), document.getElementById('app'));
+_reactDom2.default.render(_react2.default.createElement(_HomeContainer2.default, null), document.getElementById('app'));
 
 /***/ }),
 /* 85 */
@@ -22506,19 +22473,19 @@ function _inherits(subClass, superClass) { if (typeof superClass !== "function" 
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @Project: reactweb
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @Filename: container.jsx
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 * @Last modified by:   Henry Bbosa
-                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @Last modified time: 2017-10-11T11:05:39+03:00
+                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                * @Last modified time: 2017-10-11T18:02:55+03:00
                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                                 */
 
-var Container = function (_Component) {
-  _inherits(Container, _Component);
+var HomeContainer = function (_Component) {
+  _inherits(HomeContainer, _Component);
 
-  function Container() {
-    _classCallCheck(this, Container);
+  function HomeContainer() {
+    _classCallCheck(this, HomeContainer);
 
-    return _possibleConstructorReturn(this, (Container.__proto__ || Object.getPrototypeOf(Container)).apply(this, arguments));
+    return _possibleConstructorReturn(this, (HomeContainer.__proto__ || Object.getPrototypeOf(HomeContainer)).apply(this, arguments));
   }
 
-  _createClass(Container, [{
+  _createClass(HomeContainer, [{
     key: 'render',
     value: function render() {
       return _react2.default.createElement(
@@ -22526,23 +22493,69 @@ var Container = function (_Component) {
         { className: 'container' },
         _react2.default.createElement(
           'div',
-          { className: 'panel panel-body' },
+          { className: 'row' },
           _react2.default.createElement(
-            'h1',
-            null,
-            'This is the topleft compoent'
+            'div',
+            { className: 'col-xs-12 col-sm-12' },
+            _react2.default.createElement('img', { src: '../app/img/town.jpg', alt: 'home town' })
+          )
+        ),
+        _react2.default.createElement(
+          'div',
+          { className: 'row' },
+          _react2.default.createElement(
+            'div',
+            { className: 'col-sm-6' },
+            _react2.default.createElement(
+              'div',
+              { className: 'row' },
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-12' },
+                _react2.default.createElement('input', { type: 'text', placeholder: 'enter email' })
+              ),
+              _react2.default.createElement('br', null),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-12' },
+                _react2.default.createElement('input', { type: 'password', placeholder: 'enter password' })
+              ),
+              _react2.default.createElement('br', null),
+              _react2.default.createElement(
+                'div',
+                { className: 'col-sm-12' },
+                _react2.default.createElement(
+                  'button',
+                  { className: 'btn btn-success' },
+                  'Login'
+                )
+              )
+            )
+          ),
+          _react2.default.createElement(
+            'div',
+            { className: 'col-sm-6' },
+            _react2.default.createElement(
+              'a',
+              { href: '#' },
+              _react2.default.createElement(
+                'h1',
+                null,
+                'Create New Account'
+              )
+            )
           )
         )
       );
     }
   }]);
 
-  return Container;
+  return HomeContainer;
 }(_react.Component);
 
 ;
 
-exports.default = Container;
+exports.default = HomeContainer;
 
 /***/ }),
 /* 187 */

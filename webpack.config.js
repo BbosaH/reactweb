@@ -5,7 +5,7 @@
  * @Project: reactweb
  * @Filename: webpack.config.js
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-11T11:10:43+03:00
+ * @Last modified time: 2017-10-11T17:11:45+03:00
  */
 
 
@@ -29,7 +29,8 @@ module.exports =
 
     alias : {
 
-      Container: path.resolve(__dirname, 'app/components/container.jsx/'),
+      HomeContainer: path.resolve(__dirname, 'app/components/home-container.container.jsx/'),
+      
       //Templates: path.resolve(__dirname, 'src/templates/')
 
     },
