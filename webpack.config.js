@@ -5,7 +5,7 @@
  * @Project: reactweb
  * @Filename: webpack.config.js
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-11T17:11:45+03:00
+ * @Last modified time: 2017-10-13T01:40:05+03:00
  */
 
 
@@ -29,8 +29,13 @@ module.exports =
 
     alias : {
 
-      HomeContainer: path.resolve(__dirname, 'app/components/home-container.container.jsx/'),
-      
+      HomeContainer: path.resolve(__dirname, 'app/components/component-homecontainer.container.jsx/'),
+      LoginComponent: path.resolve(__dirname, 'app/components/component-login.jsx/'),
+      CreateAccountComponent:path.resolve(__dirname, 'app/components/component-createaccount.jsx/'),
+      LoginActions:path.resolve(__dirname, 'app/actions/login-actions.jsx/'),
+      LoginReducers:path.resolve(__dirname, 'app/reducers/login-reducers.jsx/'),
+      ConfigureStore :path.resolve(__dirname, 'app/store/store-config.jsx/')
+
       //Templates: path.resolve(__dirname, 'src/templates/')
 
     },

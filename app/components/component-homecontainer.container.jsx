@@ -5,13 +5,15 @@
  * @Project: reactweb
  * @Filename: container.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-11T18:02:55+03:00
+ * @Last modified time: 2017-10-12T16:19:05+03:00
  */
 
 
 
 import  React,{Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
+import LoginComponent from 'LoginComponent'
+import CreateAccountComponent from 'CreateAccountComponent'
 
 
 
@@ -28,22 +30,10 @@ class HomeContainer extends  Component {
         </div>
         <div className="row">
           <div className="col-sm-6">
-            <div className="row">
-              <div className="col-sm-12">
-                <input type="text" placeholder="enter email"/>
-              </div>
-              <br/>
-              <div className="col-sm-12">
-                <input type="password" placeholder="enter password"/>
-              </div>
-              <br/>
-              <div className="col-sm-12">
-                <button className="btn btn-success">Login</button>
-              </div>
-            </div>
+            <LoginComponent/>
           </div>
           <div className="col-sm-6">
-            <a href="#"><h1>Create New Account</h1></a>
+            <CreateAccountComponent/>
           </div>
 
         </div>
