@@ -1,3 +1,15 @@
+/**
+ * @Author: Henry Bbosa
+ * @Date:   2017-10-11T09:04:02+03:00
+ * @Email:  bbosa.henry1@gmail.com
+ * @Project: potato
+ * @Filename: webpack.bootstrap.config.js
+ * @Last modified by:   Henry Bbosa
+ * @Last modified time: 2017-10-12T04:29:56+03:00
+ */
+
+
+
 const fs = require('fs');
 
 function getBootstraprcCustomLocation() {
