@@ -2,45 +2,61 @@
  * @Author: Henry Bbosa
  * @Date:   2017-10-12T16:21:07+03:00
  * @Email:  bbosa.henry1@gmail.com
- * @Project: potato
+ * @Project: reactweb
  * @Filename: login-reducers.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-13T01:53:16+03:00
+ * @Last modified time: 2017-10-14T08:33:38+03:00
  */
-
+ import{
+   LOGIN_USER,
+   LOGIN_USER_SUCCESS,
+   EMAIL_CHANGED,
+   PASSWORD_CHANGED,
+   LOGIN_USER_FAIL
+ } from 'Settings'
 
 const defaultState = {
   email : '',
-  password :''
+  password :'',
+  login_error:'',
+  loading : false,
+  user : null
 }
 
 export const loginReducer =(state=defaultState,action)=>{
   switch(action.type){
-    case  'LOGIN_USER' :
+    case EMAIL_CHANGED:
+    return {
+      ...state,
+      email:action.payload
+    }
+    case PASSWORD_CHANGED:
+    return{
+      ...state,
+      password:action.payload
+    }
+    case  LOGIN_USER :
      return {
-       
-       email : action.email,
-       password : action.password
-     }
+       ...state,
+       loading: true,
+       login_error: ''
+     };
+     case LOGIN_USER_SUCCESS:
+       return {
+         ...state,
+         ...defaultState,
+         user: action.payload,
+         loading: false
+       };
+     case  LOGIN_USER_FAIL:
+       return {
+         ...state,
+         error: 'Authentication failed.',
+         password: '',
+         loading: false
+      };
     default :
       return state;
   }
 
-}
-export const changeEmailReducer =(state='',action)=>{
-  switch(action.type){
-    case 'EMAIL_CHANGED':
-      return action.email
-    default :
-      return state;
-  }
-}
-
-export const changePasswordReducer =(state='',action)=>{
-  switch(action.type){
-    case 'PASSWORD_CHANGED':
-      return action.password
-    default :
-      return state;
-  }
 }

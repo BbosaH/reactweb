@@ -5,23 +5,21 @@
  * @Project: potato
  * @Filename: store-config.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-13T01:59:12+03:00
+ * @Last modified time: 2017-10-13T23:27:46+03:00
  */
 
 import {createStore, applyMiddleware,combineReducers,compose} from 'redux';
+import reduxthunk from 'redux-thunk'
 
-import {changeEmailReducer,changePasswordReducer,loginReducer,} from "LoginReducers"
+import combinedreducer from "CombinedReducer"
 
-export const config =()=>{
-   const combinedreducer = combineReducers({
-     changeEmail : changeEmailReducer,
-     changePassword :changePasswordReducer,
-     login :changePasswordReducer
+export const config =(initalState={})=>{
 
-   });
 
-   const store = createStore(combinedreducer,compose(window.devToolsExtension?
+   const store = createStore(combinedreducer,initalState,compose(applyMiddleware(reduxthunk),window.devToolsExtension?
      window.devToolsExtension() : f=>f));
+
+    //  const store = createStore(combinedreducer,initalState,applyMiddleware(ReduxThunk));
 
   return store;
 }

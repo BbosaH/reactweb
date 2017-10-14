@@ -5,29 +5,35 @@
  * @Project: yulu
  * @Filename: app.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-13T01:40:27+03:00
+ * @Last modified time: 2017-10-14T13:20:26+03:00
  */
 
 
 
 import React from 'react'
 import ReactDOM from 'react-dom'
-import HomeContainer from 'HomeContainer'
+import IndexContainer from 'IndexContainer'
 import 'bootstrap/dist/css/bootstrap.css';
 import {Route,Router,IndexRoute,hashHistory} from 'react-router';
 import {config} from 'ConfigureStore'
-import {emailChangeAction,loginAction,passwordChangeAction} from 'LoginActions'
+import {Provider} from 'react-redux'
+import {emailChangeAction,loginAction,passwordChangeAction} from 'Actions'
+
 
 const store = config();
 store.subscribe(()=>{
   console.log("new state ==>",store.getState())
 });
-store.dispatch(emailChangeAction("henrybbosa@gmail.com"));
-store.dispatch(passwordChangeAction("gloriagloria"));
+// store.dispatch(emailChangeAction("henrybbosa@gmail.com"));
+// store.dispatch(passwordChangeAction("gloriagloria"));
+
+
 
 
 ReactDOM.render(
-  <HomeContainer/>
+  <Provider store={store}>
+  <IndexContainer/>
+  </Provider>
  ,
   document.getElementById('app')
 );

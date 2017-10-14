@@ -5,7 +5,7 @@
  * @Project: reactweb
  * @Filename: webpack.config.js
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-13T01:40:05+03:00
+ * @Last modified time: 2017-10-14T13:20:06+03:00
  */
 
 
@@ -28,13 +28,21 @@ module.exports =
   resolve :{
 
     alias : {
-
-      HomeContainer: path.resolve(__dirname, 'app/components/component-homecontainer.container.jsx/'),
-      LoginComponent: path.resolve(__dirname, 'app/components/component-login.jsx/'),
-      CreateAccountComponent:path.resolve(__dirname, 'app/components/component-createaccount.jsx/'),
+      app : 'app',
+      IndexContainer: path.resolve(__dirname, 'app/containers/container-index.container.jsx/'),
+      LoginComponent: path.resolve(__dirname, 'app/containers/container-login.jsx/'),
+      CreateInvitationRequestComponent:path.resolve(__dirname, 'app/containers/container-create-invitation-request.jsx/'),
       LoginActions:path.resolve(__dirname, 'app/actions/login-actions.jsx/'),
-      LoginReducers:path.resolve(__dirname, 'app/reducers/login-reducers.jsx/'),
-      ConfigureStore :path.resolve(__dirname, 'app/store/store-config.jsx/')
+      CreateInvitationRequestActions:path.resolve(__dirname, 'app/actions/create-invitation-request-actions.jsx/'),
+      Actions:path.resolve(__dirname, 'app/actions/index.jsx/'),
+      LoginReducer:path.resolve(__dirname, 'app/reducers/login-reducers.jsx/'),
+      CreateInvitationRequestReducer:path.resolve(__dirname, 'app/reducers/create-invitation-request-reducers.jsx/'),
+      CombinedReducer:path.resolve(__dirname, 'app/reducers/index.jsx/'),
+      ConfigureStore :path.resolve(__dirname, 'app/store/store-config.jsx/'),
+      Settings : path.resolve(__dirname, 'app/settings/settings.jsx/'),
+      FirebaseIndex :path.resolve(__dirname, 'app/firebase/index.jsx/'),
+      DisplayMessage : path.resolve(__dirname, 'app/components/component-display-message.jsx/'),
+      HomeContainer : path.resolve(__dirname, 'app/containers/container-home.container.jsx/'),
 
       //Templates: path.resolve(__dirname, 'src/templates/')
 
@@ -59,11 +67,11 @@ module.exports =
       },
       {
         test: /\.png$/,
-        loader: "url-loader?limit=100000"
+        loader: "url-loader?limit=1000000"
       },
       {
         test: /\.jpg$/,
-        loader: "file-loader"
+        loader: "url-loader?limit=1000000"
       },
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,

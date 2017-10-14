@@ -5,7 +5,7 @@
  * @Project: reactweb
  * @Filename: container.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-12T16:19:05+03:00
+ * @Last modified time: 2017-10-14T13:15:47+03:00
  */
 
 
@@ -13,18 +13,20 @@
 import  React,{Component} from 'react';
 import 'bootstrap/dist/css/bootstrap.css';
 import LoginComponent from 'LoginComponent'
-import CreateAccountComponent from 'CreateAccountComponent'
+import CreateInvitationRequestComponent from 'CreateInvitationRequestComponent'
+import image from './../img/oldtown.png'
 
 
 
-class HomeContainer extends  Component {
+
+class IndexContainer extends  Component {
 
   render(){
     return(
       <div className="container">
         <div className="row">
           <div className="col-xs-12 col-sm-12">
-            <img src='../app/img/town.jpg' alt="home town" />
+            <img src={image} alt="home town" />
           </div>
 
         </div>
@@ -33,7 +35,10 @@ class HomeContainer extends  Component {
             <LoginComponent/>
           </div>
           <div className="col-sm-6">
-            <CreateAccountComponent/>
+
+            <CreateInvitationRequestComponent/>
+
+
           </div>
 
         </div>
@@ -44,4 +49,4 @@ class HomeContainer extends  Component {
 
 };
 
-export default HomeContainer;
+export default IndexContainer;
