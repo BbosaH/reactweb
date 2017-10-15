@@ -5,12 +5,14 @@
  * @Project: potato
  * @Filename: component-createaccount.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-14T13:07:39+03:00
+ * @Last modified time: 2017-10-15T07:00:15+03:00
  */
 import React, {Component} from 'react';
 import {connect} from 'react-redux';
-import {emailChangeAction,requestInvitationAction} from 'Actions'
+import {emailChangeAction,requestInvitationAction,WrongEmailProvided } from 'Actions'
 import DisplayMessage from 'DisplayMessage'
+import {EMAIL_REG_EXP} from 'Settings'
+import {validateReg} from 'Utility'
 
 class CreateInvitationRequestComponent extends Component{
   constructor(props){
@@ -33,7 +35,9 @@ class CreateInvitationRequestComponent extends Component{
 
         <div className="col-sm-12">
           <a href="#" onClick={()=>{
-              dispatch(requestInvitationAction(email))
+              (validateReg(email,EMAIL_REG_EXP))?
+              dispatch(requestInvitationAction(email)):
+              dispatch(WrongEmailProvided())
             }}><h1>Create New Account</h1></a>
         </div>
         <DisplayMessage message={invitation_message}/>

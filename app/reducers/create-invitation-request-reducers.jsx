@@ -5,7 +5,7 @@
  * @Project: potato
  * @Filename: create-account-reducers.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-14T13:11:33+03:00
+ * @Last modified time: 2017-10-15T06:56:11+03:00
  */
 
  import {
@@ -14,6 +14,7 @@
    REQUEST_INVITATION_SUCCESS,
    REQUEST_INVITATION_FAIL,
    REGISTER_USER,
+   WRONG_EMAIL_PROVIDED,
    REGISTRATION_USER_SUCCESS,
    REGISTRATION_USER_FAIL
  } from 'Settings'
@@ -64,10 +65,11 @@
       case REGISTRATION_USER_SUCCESS:
         return {
           ...state,
-          ...INITIAL_STATE,
+          ...defaultState,
           user: action.payload,
           loading: false
         };
+
       case  REGISTRATION_USER_FAIL:
         return {
           ...state,
@@ -75,6 +77,13 @@
           password: '',
           loading: false
         };
+        case  WRONG_EMAIL_PROVIDED:
+          return {
+            ...state,
+            invitation_message: 'Wrong Email provided please use correct format.',
+            password: '',
+            loading: false
+          };
      default :
        return state;
    }

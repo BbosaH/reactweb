@@ -5,11 +5,17 @@
  * @Project: potato
  * @Filename: login.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-14T11:40:44+03:00
+ * @Last modified time: 2017-10-15T07:45:37+03:00
  */
 import React,{Component} from 'React';
 import {connect} from 'react-redux';
-import {loginAction,emailChangeAction,passwordChangeAction} from 'Actions'
+import {loginAction,loginEmailChangeAction,loginPasswordChangeAction} from 'Actions'
+import DisplayMessage from 'DisplayMessage'
+import {
+  Redirect,
+  withRouter
+} from 'react-router-dom'
+
 
 
 
@@ -27,33 +33,70 @@ export class LoginComponent extends Component{
     // dispatch(passwordChangeAction(password));
   }
 
+  redirecttoHomePage(){
+
+  }
+
+
+
   render(){
-    const {dispatch}=this.props;
+    const {dispatch,email,password,should_redirect,login_message}=this.props;
 
     return (
       <div className="row">
         <div className="col-sm-12">
 
-          <input type="email" value="" placeholder="enter email"  onChange={
-              this.onChangeEmail(dispatch)}/>
+          <input type="email" value={email} placeholder="enter email"  onChange={
+                (e)=>{
+                  dispatch(loginEmailChangeAction(e.target.value));
+                 }
+            }/>
 
         </div>
         <br/>
         <div className="col-sm-12">
-          <input type="password"  value="" placeholder="enter password"  onChange={this.onChangePassword(dispatch)}/>
+          <input type="password"  value={password} placeholder="enter password"  onChange={
+
+              (e)=>{
+                dispatch(loginPasswordChangeAction(e.target.value));
+               }
+            }/>
 
         </div>
         <br/>
         <div className="col-sm-12">
-          <button className="btn btn-success" onClick={()=>{
-              dispatch(loginAction())
-            }}>Login</button>
+          {(should_redirect)?
+            
+            <Redirect to="/home"/>
+           :
+            <button className="btn btn-success" onClick={()=>{
+                dispatch(loginAction(email,password))
+              }}>Login</button>
+          }
+
+
         </div>
+        <DisplayMessage message={login_message}/>
       </div>
     )
   }
 }
 
 export default connect(
+  (state)=>{
+      const {login}=state
+      const {email,
+      password ,
+      login_message,
+      loading,
+      should_redirect,
+      user}=login
+      return{
+        email,
+        password ,
+        should_redirect,
+        login_message
+      }
+  }
 
 )(LoginComponent);

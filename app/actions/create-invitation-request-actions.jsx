@@ -5,7 +5,7 @@
  * @Project: reactweb
  * @Filename: create-account-actions.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-14T13:04:12+03:00
+ * @Last modified time: 2017-10-15T07:07:13+03:00
  */
  import firebase,{firebaseRef} from 'FirebaseIndex'
  import {
@@ -15,21 +15,24 @@
    REQUEST_INVITATION_SUCCESS,
    REGISTER_USER,
    REGISTRATION_USER_FAIL,
+   WRONG_EMAIL_PROVIDED,
    INVITATION_REQUEST_STATUS_PENDING
  } from 'Settings'
 
 
- export const emailChanged = (email) => {
+ export const emailChangeAction = (email) => {
    return {
      type   : EMAIL_CHANGED,
-     payload: email,
+     email,
    }
  }
 
  export const requestInvitationAction =(email)=>{
 
    return (dispatch) => {
-     dispatch({type: REQUEST_INVITATION});
+     dispatch({
+       type: REQUEST_INVITATION
+     });
 
      firebaseRef.child("invitation_requests").push({
        email : email,
@@ -66,6 +69,12 @@
 
  const requestInvitationFailed=(dispatch) =>{
    dispatch({type: REQUEST_INVITATION_FAIL})
+ }
+
+ export const WrongEmailProvided = () => {
+   return {
+     type   : WRONG_EMAIL_PROVIDED,
+   }
  }
 
 

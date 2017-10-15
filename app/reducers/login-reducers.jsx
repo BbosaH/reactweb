@@ -5,35 +5,38 @@
  * @Project: reactweb
  * @Filename: login-reducers.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-14T08:33:38+03:00
+ * @Last modified time: 2017-10-15T07:35:21+03:00
  */
  import{
    LOGIN_USER,
    LOGIN_USER_SUCCESS,
-   EMAIL_CHANGED,
+   LOGIN_EMAIL_CHANGED,
    PASSWORD_CHANGED,
-   LOGIN_USER_FAIL
+   LOGIN_USER_FAIL,
+   LOGIN_REDIRECT_ACCEPTED
+
  } from 'Settings'
 
 const defaultState = {
   email : '',
   password :'',
-  login_error:'',
+  login_message:'',
   loading : false,
+  should_redirect: false,
   user : null
 }
 
 export const loginReducer =(state=defaultState,action)=>{
   switch(action.type){
-    case EMAIL_CHANGED:
+    case LOGIN_EMAIL_CHANGED:
     return {
       ...state,
-      email:action.payload
+      email:action.email
     }
     case PASSWORD_CHANGED:
     return{
       ...state,
-      password:action.payload
+      password:action.password
     }
     case  LOGIN_USER :
      return {
@@ -45,14 +48,15 @@ export const loginReducer =(state=defaultState,action)=>{
        return {
          ...state,
          ...defaultState,
+         login_message:'Success fully logged in!!!',
          user: action.payload,
+         should_redirect : true,
          loading: false
        };
      case  LOGIN_USER_FAIL:
        return {
          ...state,
-         error: 'Authentication failed.',
-         password: '',
+         login_message: 'User does not exist.!!!',
          loading: false
       };
     default :

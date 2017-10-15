@@ -5,7 +5,7 @@
  * @Project: reactweb
  * @Filename: webpack.config.js
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-14T13:20:06+03:00
+ * @Last modified time: 2017-10-14T13:42:47+03:00
  */
 
 
@@ -43,6 +43,7 @@ module.exports =
       FirebaseIndex :path.resolve(__dirname, 'app/firebase/index.jsx/'),
       DisplayMessage : path.resolve(__dirname, 'app/components/component-display-message.jsx/'),
       HomeContainer : path.resolve(__dirname, 'app/containers/container-home.container.jsx/'),
+      Utility : path.resolve(__dirname, 'app/utility/utility.jsx/'),
 
       //Templates: path.resolve(__dirname, 'src/templates/')
 

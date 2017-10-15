@@ -2,10 +2,10 @@
  * @Author: Henry Bbosa
  * @Date:   2017-10-12T04:59:16+03:00
  * @Email:  bbosa.henry1@gmail.com
- * @Project: potato
+ * @Project: reactweb
  * @Filename: actions.test.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-13T00:53:18+03:00
+ * @Last modified time: 2017-10-15T07:15:03+03:00
  */
 
  import {assert} from 'chai'
