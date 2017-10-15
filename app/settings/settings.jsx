@@ -5,7 +5,7 @@
  * @Project: reactweb
  * @Filename: settings.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-15T06:56:35+03:00
+ * @Last modified time: 2017-10-15T12:07:30+03:00
  */
  export const EMAIL_CHANGED = 'email_changed';
  export const LOGIN_EMAIL_CHANGED = 'login_email_changed';
@@ -21,6 +21,8 @@
  export const REQUEST_INVITATION_FAIL="invitation_request_failed"
  export const LOGIN_REDIRECT_ACCEPTED="redirect_to_home"
  export const WRONG_EMAIL_PROVIDED="Wrong Email format"
+ export const INVITATION_ITEM_CLICKED="invitation_item_clicked"
+ export const INVITATION_REQUESTS_UPDATED="invitation_requests_updated"
 
  export const INVITATION_REQUEST_STATUS_PENDING = "pending"
  export const INVITATION_REQUEST_STATUS_ACCEPTED = "accepted"

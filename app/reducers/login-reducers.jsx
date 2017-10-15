@@ -5,7 +5,7 @@
  * @Project: reactweb
  * @Filename: login-reducers.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-15T07:35:21+03:00
+ * @Last modified time: 2017-10-15T10:23:24+03:00
  */
  import{
    LOGIN_USER,
@@ -56,7 +56,7 @@ export const loginReducer =(state=defaultState,action)=>{
      case  LOGIN_USER_FAIL:
        return {
          ...state,
-         login_message: 'User does not exist.!!!',
+         login_message: 'Wrong Email or Password !!!',
          loading: false
       };
     default :

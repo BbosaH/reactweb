@@ -5,7 +5,7 @@
  * @Project: reactweb
  * @Filename: login-actions.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-15T07:38:20+03:00
+ * @Last modified time: 2017-10-15T10:21:09+03:00
  */
 
 import firebase,{firebaseRef} from 'FirebaseIndex'
@@ -32,22 +32,27 @@ export const loginAction =(email,password)=>{
     .then((snapshot)=>{
       //returned array of one users
       var users = snapshot.val()
-      users = constructArrayFromFirebaseArray(users)
-      users=users.map((user)=>{
-        if(user.password===password){
-           return user;
-        }
-        return []._;
-      }).filter(function( element ) {
-         return element !== []._;
-      });
-      users.length> 0 ? loginUserSuccess(dispatch, users[0]) : loginUserFail(dispatch)
+      if(users){
 
-      console.log("The users are ",users);
-      //loginUserSuccess = (dispatch, user)
-      // var key = keys[0];
-      // //logging userof that key
-      // console.log(users[key].email)
+        users = constructArrayFromFirebaseArray(users)
+        users=users.map((user)=>{
+          if(user.password===password){
+             return user;
+          }
+          return []._;
+        }).filter(function( element ) {
+           return element !== []._;
+        });
+        users.length> 0 ? loginUserSuccess(dispatch, users[0]) : loginUserFail(dispatch)
+
+        console.log("The users are ",users);
+
+      }else{
+        loginUserFail(dispatch)
+      }
+
+
+
     },(err)=>{
       console.log("failed to get User because => "+e);
     })

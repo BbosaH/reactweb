@@ -5,16 +5,18 @@
  * @Project: potato
  * @Filename: index.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-14T09:04:08+03:00
+ * @Last modified time: 2017-10-15T10:04:23+03:00
  */
  import {combineReducers} from 'redux';
  import {loginReducer} from "LoginReducer"
- import {createInvitationRequestReducer} from "CreateInvitationRequestReducer"
+ import {createInvitationRequestReducer} from "CreateInvitationRequestReducer";
+ import {invitationRequestReducer} from "InvitationRequestReducer";
 
  const combinedreducer = combineReducers({
 
    login :loginReducer,
-   createInvitationRequest:createInvitationRequestReducer
+   createInvitationRequest:createInvitationRequestReducer,
+   invitationRequest:invitationRequestReducer
 
  });
 

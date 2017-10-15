@@ -5,7 +5,7 @@
  * @Project: reactweb
  * @Filename: app.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-15T07:50:12+03:00
+ * @Last modified time: 2017-10-15T10:03:35+03:00
  */
 
 
@@ -14,10 +14,9 @@ import React,{Component} from 'react'
 import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.css';
 // import {BrowserRouter as Router ,Route,IndexRoute,hashHistory} from 'react-router';
-import {BrowserRouter,Route,Switch,NavLink} from 'react-router-dom';
+import {BrowserRouter,Route,Switch} from 'react-router-dom';
 import {config} from 'ConfigureStore'
 import {Provider} from 'react-redux'
-import {emailChangeAction,loginAction,passwordChangeAction} from 'Actions'
 import IndexContainer from 'IndexContainer'
 import HomeContainer from 'HomeContainer'
 
