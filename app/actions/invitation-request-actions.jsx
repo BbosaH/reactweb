@@ -5,11 +5,12 @@
  * @Project: potato
  * @Filename: invitation-request-actions.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-15T13:01:43+03:00
+ * @Last modified time: 2017-10-15T23:58:45+03:00
  */
 
 
  import firebase,{firebaseRef} from 'FirebaseIndex'
+ // import {sendMailtoUSer} from 'Email'
 
  import{
    LOGIN_USER,
@@ -17,6 +18,7 @@
    LOGIN_USER_SUCCESS,
    LOGIN_EMAIL_CHANGED,
    PASSWORD_CHANGED,
+   INVITATION_ITEM_CLICKED,
    LOGIN_USER_FAIL,
    INVITATION_REQUESTS_UPDATED,
    LOGIN_REDIRECT_ACCEPTED
@@ -28,7 +30,7 @@
    return (dispatch)=>{
     //  dispatch({type: INVITATION_REQUESTS_UPDATED})
      const invitationRef =firebaseRef.child('invitation_requests');
-     invitationRef.on('value',(snapshot)=>{
+     invitationRef.orderByChild("status").equalTo('pending').on('value',(snapshot)=>{
 
          var invitation_requests = constructArrayFromFirebaseArray(snapshot.val());
          dispatch({
@@ -43,11 +45,32 @@
    }
  }
 
- export const clickInvitationItemAction =(id)=>{
+ export const sendInvitationToEmailAction =(id,email)=>{
+
+   return (dispatch) => {
+     //sendMailtoUSer(email)
+
+     dispatch({
+       type: INVITATION_ITEM_CLICKED,
+       id
+     });
+
+   };
+ }
+
+ export const rejectInvitationAction =(id)=>{
 
    return (dispatch) => {
 
-     dispatch({type: INVITATION_ITEM_CLICKED});
+     const invitationRef =firebaseRef.child(`invitation_requests/${id}/status`);
+     invitationRef
+     .set('rejected')
+     .then(()=>{
+       dispatch({
+         type: INVITATION_ITEM_CLICKED,
+         id
+       });
+     });
 
    };
  }

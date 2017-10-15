@@ -5,7 +5,7 @@
  * @Project: potato
  * @Filename: invitation-request-reducer.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-15T13:01:23+03:00
+ * @Last modified time: 2017-10-15T23:25:05+03:00
  */
  import{
    LOGIN_USER,
@@ -21,7 +21,7 @@
 
 const defaultState ={
   invitations:[
-    
+
   ]
 }
 
@@ -30,9 +30,12 @@ export const invitationRequestReducer = (state=defaultState,action)=>{
      case INVITATION_ITEM_CLICKED:
      return {
        ...state,
-       ...defaultState
+       ...state.invitations=state.invitations.filter(
+         invitation=>invitation.id !== action.id
+       ),
 
      }
+     
      case INVITATION_REQUESTS_UPDATED:
         return {
           ...state,

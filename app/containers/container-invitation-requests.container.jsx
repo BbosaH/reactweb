@@ -5,12 +5,13 @@
  * @Project: reactweb
  * @Filename: container-invitation-requests.container.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-15T13:05:31+03:00
+ * @Last modified time: 2017-10-15T23:36:32+03:00
  */
 import React,{Component} from 'React'
 import InvitationRequestItem from 'InvitationRequestItem';
 import {connect} from 'react-redux';
 import {fetchInvitationRequests} from 'InvitationRequestActions'
+import {sendInvitationToEmailAction,rejectInvitationAction} from 'InvitationRequestActions'
 
  class InvitationRequestList extends Component{
 
@@ -20,19 +21,32 @@ import {fetchInvitationRequests} from 'InvitationRequestActions'
      const {dispatch}=this.props
      dispatch(fetchInvitationRequests())
      //this.createDataSource(this.props)
-     
+
+   }
+
+   sendInvitation(dispatch,invitation){
+
+      //console.log("ffjjfj",invitation.status)
+      dispatch(sendInvitationToEmailAction(invitation.id,invitation.email))
+   }
+   rejectInvitation(dispatch,invitation){
+
+      //console.log("ffjjfjjajasj",invitation.email)
+      dispatch(rejectInvitationAction(invitation.id));
    }
 
     renderInvitations(invitations){
+
+
       return invitations.map((invitation)=>{
         return (
-          <InvitationRequestItem key={invitation.id} invitation={invitation}/>
+          <InvitationRequestItem key={invitation.id} invitation={invitation} func={this.sendInvitation} func2={this.rejectInvitation}/>
         )
       });
 
     }
    render(){
-     const {dispatch,invitations}=this.props
+     const {invitations}=this.props
 
      return(
        <div className="row">

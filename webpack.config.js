@@ -5,7 +5,7 @@
  * @Project: reactweb
  * @Filename: webpack.config.js
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-15T11:50:31+03:00
+ * @Last modified time: 2017-10-15T18:16:26+03:00
  */
 
 
@@ -46,10 +46,10 @@ module.exports =
       Utility : path.resolve(__dirname, 'app/utility/utility.jsx/'),
       InvitationRequestReducer : path.resolve(__dirname, 'app/reducers/invitation-request-reducer.jsx/'),
       InvitationRequestList : path.resolve(__dirname, 'app/containers/container-invitation-requests.container.jsx/'),
-      InvitationRequestItem : path.resolve(__dirname, 'app/components/component-invitation-request-item.jsx/'),
+      InvitationRequestItem : path.resolve(__dirname, 'app/containers/container-invitation-request-item.container.jsx/'),
       InvitationRequestActions:path.resolve(__dirname, 'app/actions/invitation-request-actions.jsx/'),
-      HomeButtonStyle : path.resolve(__dirname, 'app/styles/home-style.css/'),
       TileContainer :path.resolve(__dirname, 'app/containers/container-tiledashboard.container.jsx/'),
+      Email :path.resolve(__dirname, 'app/email/mail.jsx/'),
 
       //Templates: path.resolve(__dirname, 'src/templates/')
 
