@@ -5,19 +5,28 @@
  * @Project: potato
  * @Filename: server.js
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-12T04:30:27+03:00
+ * @Last modified time: 2017-10-16T10:49:05+03:00
  */
 
 
 
 //including / loading express
 var express = require('express');
+var router =require('./router') ;
+var bodyParser = require('body-parser');
+
 
 //create our app;
 var app = express();
 
 //tell node which folder to serve
 app.use(express.static('client'));
+
+
+//use bodyParser() to let us get the data from a POST
+app.use(bodyParser.urlencoded({ extended: true }));
+app.use(bodyParser.json());
+router(app);
 
 app.listen(3000,function(){
   console.log('Express server is up and running on port 3000');

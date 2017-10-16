@@ -5,7 +5,7 @@
  * @Project: reactweb
  * @Filename: container-invitation-requests.container.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-15T23:36:32+03:00
+ * @Last modified time: 2017-10-16T00:24:15+03:00
  */
 import React,{Component} from 'React'
 import InvitationRequestItem from 'InvitationRequestItem';
@@ -25,13 +25,9 @@ import {sendInvitationToEmailAction,rejectInvitationAction} from 'InvitationRequ
    }
 
    sendInvitation(dispatch,invitation){
-
-      //console.log("ffjjfj",invitation.status)
       dispatch(sendInvitationToEmailAction(invitation.id,invitation.email))
    }
    rejectInvitation(dispatch,invitation){
-
-      //console.log("ffjjfjjajasj",invitation.email)
       dispatch(rejectInvitationAction(invitation.id));
    }
 

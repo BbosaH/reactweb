@@ -5,7 +5,7 @@
  * @Project: reactweb
  * @Filename: webpack.config.js
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-15T18:16:26+03:00
+ * @Last modified time: 2017-10-16T09:56:07+03:00
  */
 
 
@@ -39,17 +39,17 @@ module.exports =
       CreateInvitationRequestReducer:path.resolve(__dirname, 'app/reducers/create-invitation-request-reducers.jsx/'),
       CombinedReducer:path.resolve(__dirname, 'app/reducers/index.jsx/'),
       ConfigureStore :path.resolve(__dirname, 'app/store/store-config.jsx/'),
-      Settings : path.resolve(__dirname, 'app/settings/settings.jsx/'),
+      Settings : path.resolve(__dirname, 'app/utility/settings.jsx/'),
       FirebaseIndex :path.resolve(__dirname, 'app/firebase/index.jsx/'),
       DisplayMessage : path.resolve(__dirname, 'app/components/component-display-message.jsx/'),
       HomeContainer : path.resolve(__dirname, 'app/containers/container-home.container.jsx/'),
-      Utility : path.resolve(__dirname, 'app/utility/utility.jsx/'),
+      Utility : path.resolve(__dirname, 'app/utility/funcs.jsx/'),
       InvitationRequestReducer : path.resolve(__dirname, 'app/reducers/invitation-request-reducer.jsx/'),
       InvitationRequestList : path.resolve(__dirname, 'app/containers/container-invitation-requests.container.jsx/'),
       InvitationRequestItem : path.resolve(__dirname, 'app/containers/container-invitation-request-item.container.jsx/'),
       InvitationRequestActions:path.resolve(__dirname, 'app/actions/invitation-request-actions.jsx/'),
       TileContainer :path.resolve(__dirname, 'app/containers/container-tiledashboard.container.jsx/'),
-      Email :path.resolve(__dirname, 'app/email/mail.jsx/'),
+      Email :path.resolve(__dirname, 'mail.jsx/'),
 
       //Templates: path.resolve(__dirname, 'src/templates/')
 
@@ -83,7 +83,15 @@ module.exports =
       {
         test: /\.(eot|svg|ttf|woff|woff2)$/,
         loader: 'file-loader?name=node_modules/bootstrap/fonts/[name].[ext]'
-      }
+      },
+      { test: /\.json$/, loader: 'json-loader' }
     ]
+  },
+  node: {
+    console: true,
+    fs: 'empty',
+    net: 'empty',
+    tls: 'empty'
   }
+
 }

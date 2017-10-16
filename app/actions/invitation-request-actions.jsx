@@ -5,12 +5,13 @@
  * @Project: potato
  * @Filename: invitation-request-actions.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-15T23:58:45+03:00
+ * @Last modified time: 2017-10-16T12:04:37+03:00
  */
 
 
  import firebase,{firebaseRef} from 'FirebaseIndex'
- // import {sendMailtoUSer} from 'Email'
+ import axios from 'axios';
+
 
  import{
    LOGIN_USER,
@@ -21,7 +22,8 @@
    INVITATION_ITEM_CLICKED,
    LOGIN_USER_FAIL,
    INVITATION_REQUESTS_UPDATED,
-   LOGIN_REDIRECT_ACCEPTED
+   LOGIN_REDIRECT_ACCEPTED,
+   API_URL
  } from 'Settings'
 
  import {constructArrayFromFirebaseArray} from 'Utility'
@@ -48,12 +50,22 @@
  export const sendInvitationToEmailAction =(id,email)=>{
 
    return (dispatch) => {
-     //sendMailtoUSer(email)
 
      dispatch({
        type: INVITATION_ITEM_CLICKED,
        id
      });
+
+    //  axios.post(`${API_URL}/send_invitation`,{email})
+    //  .then(() => {
+    //
+    //  })
+    //  .catch((err) => {
+    //    console.log("tigidi erroe",err)
+    //  });
+    
+
+
 
    };
  }

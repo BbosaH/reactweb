@@ -5,7 +5,7 @@
  * @Project: reactweb
  * @Filename: settings.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-15T12:07:30+03:00
+ * @Last modified time: 2017-10-16T02:56:37+03:00
  */
  export const EMAIL_CHANGED = 'email_changed';
  export const LOGIN_EMAIL_CHANGED = 'login_email_changed';
@@ -30,6 +30,9 @@
  export const EMAIL_REG_EXP = /^(([^<>()\[\]\.,;:\s@\"]+(\.[^<>()\[\]\.,;:\s@\"]+)*)|(\".+\"))@(([^<>()[\]\.,;:\s@\"]+\.)+[^<>()[\]\.,;:\s@\"]{2,})$/i;
  export const NUM_REG_EXP = /^[0-9]+$/;
  export const TIMEZONE_REG_EXP =/^(?:Z|[+-](?:2[0-3]|[01][0-9]):[0-5][0-9])$/;
+
+ export const API_URL = process.env.NODE_ENV === 'production' ?
+ 'http://localhost:3000' : 'http://localhost:3000';
 
  export const PRIMARY_COLOR=""
  export const SECONDARY_COLOR=""
