@@ -5,7 +5,7 @@
  * @Project: reactweb
  * @Filename: app.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-15T10:03:35+03:00
+ * @Last modified time: 2017-10-16T16:14:11+03:00
  */
 
 
@@ -18,7 +18,8 @@ import {BrowserRouter,Route,Switch} from 'react-router-dom';
 import {config} from 'ConfigureStore'
 import {Provider} from 'react-redux'
 import IndexContainer from 'IndexContainer'
-import HomeContainer from 'HomeContainer'
+import HomeContainer from 'HomeContainer';
+import ShareKnowlegeOptions  from 'ShareKnowlegeOptions'
 
 
 const store = config();
@@ -35,6 +36,7 @@ class App extends Component{
         <Switch>
           <Route exact={true} path="/" component={IndexContainer}> </Route>
           <Route exact={true} path="/home" component={HomeContainer}> </Route>
+          <Route exact={true} path="/shareDash" component={ShareKnowlegeOptions}> </Route>
         </Switch>
 
     )

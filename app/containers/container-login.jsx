@@ -5,7 +5,7 @@
  * @Project: potato
  * @Filename: login.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-15T07:45:37+03:00
+ * @Last modified time: 2017-10-16T16:26:46+03:00
  */
 import React,{Component} from 'React';
 import {connect} from 'react-redux';
@@ -13,7 +13,6 @@ import {loginAction,loginEmailChangeAction,loginPasswordChangeAction} from 'Acti
 import DisplayMessage from 'DisplayMessage'
 import {
   Redirect,
-  withRouter
 } from 'react-router-dom'
 
 
@@ -66,7 +65,7 @@ export class LoginComponent extends Component{
         <br/>
         <div className="col-sm-12">
           {(should_redirect)?
-            
+
             <Redirect to="/home"/>
            :
             <button className="btn btn-success" onClick={()=>{

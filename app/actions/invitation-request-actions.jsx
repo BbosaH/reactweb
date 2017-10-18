@@ -5,11 +5,11 @@
  * @Project: potato
  * @Filename: invitation-request-actions.jsx
  * @Last modified by:   Henry Bbosa
- * @Last modified time: 2017-10-16T12:04:37+03:00
+ * @Last modified time: 2017-10-16T15:44:33+03:00
  */
 
 
- import firebase,{firebaseRef} from 'FirebaseIndex'
+ import firebase,{firebaseRef} from 'FirebaseIndex';
  import axios from 'axios';
 
 
@@ -24,7 +24,7 @@
    INVITATION_REQUESTS_UPDATED,
    LOGIN_REDIRECT_ACCEPTED,
    API_URL
- } from 'Settings'
+ } from 'Settings';
 
  import {constructArrayFromFirebaseArray} from 'Utility'
 
@@ -51,9 +51,16 @@
 
    return (dispatch) => {
 
-     dispatch({
-       type: INVITATION_ITEM_CLICKED,
-       id
+
+
+     const invitationRef =firebaseRef.child(`invitation_requests/${id}/status`);
+     invitationRef
+     .set('sent')
+     .then(()=>{
+       dispatch({
+         type: INVITATION_ITEM_CLICKED,
+         id
+       });
      });
 
     //  axios.post(`${API_URL}/send_invitation`,{email})
@@ -63,7 +70,7 @@
     //  .catch((err) => {
     //    console.log("tigidi erroe",err)
     //  });
-    
+
 
 
 
