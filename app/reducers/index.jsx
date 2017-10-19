@@ -14,6 +14,8 @@
  import {tileReducer} from "TileReducer"
  import {treeReducer} from "TreeReducer"
  import {createArticleReducer} from "CreateArticleReducer"
+ import {articlesReducer} from "ArticlesReducer"
+ import {articleViewReducer} from "ArticleViewReducer"
 
 
  const combinedreducer = combineReducers({
@@ -23,7 +25,9 @@
    invitationRequest:invitationRequestReducer,
    tiles : tileReducer,
    treeReducer : treeReducer,
-   createArticleReducer:createArticleReducer
+   createArticleReducer:createArticleReducer,
+   articlesReducer:articlesReducer,
+   articleViewReducer:articleViewReducer
 
  });
 

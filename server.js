@@ -14,6 +14,14 @@
 var express = require('express');
 var router =require('./router') ;
 var bodyParser = require('body-parser');
+var cors = require('cors')
+var corsPrefetch = require('cors-prefetch-middleware');
+const fileUpload = require('express-fileupload');
+
+ 
+
+ 
+
 
 
 //create our app;
@@ -21,6 +29,12 @@ var app = express();
 
 //tell node which folder to serve
 app.use(express.static('client'));
+
+// serve image files.
+app.use(express.static('images'));
+
+// default options
+app.use(fileUpload());
 
 
 //use bodyParser() to let us get the data from a POST

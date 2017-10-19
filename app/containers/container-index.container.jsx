@@ -19,6 +19,7 @@ import image from './../img/oldtown.png'
 
 
 
+
 class IndexContainer extends  Component {
 
   render(){

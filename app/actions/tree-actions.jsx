@@ -11,7 +11,8 @@
 
  import{
    SHOW_ARTICLES,
-   CREATE_ARTICLE
+   CREATE_ARTICLE,
+   SHOW_MY_ARTICLES
  } from 'Settings'
 
  import {constructArrayFromFirebaseArray} from 'Utility'
@@ -24,5 +25,10 @@
  export const createArticleAction =()=>{
    return{
      type : CREATE_ARTICLE
+   }
+ }
+ export const filterMyArticlesAction =()=>{
+   return{
+     type : SHOW_MY_ARTICLES
    }
  }

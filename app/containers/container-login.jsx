@@ -32,6 +32,12 @@ export class LoginComponent extends Component{
     // dispatch(passwordChangeAction(password));
   }
 
+  login=()=>{
+    
+    const{dispatch,email,password}=this.props;
+    dispatch(loginAction(email,password));
+  }
+
   redirecttoHomePage(){
 
   }
@@ -68,9 +74,7 @@ export class LoginComponent extends Component{
 
             <Redirect to="/home"/>
            :
-            <button className="btn btn-success" onClick={()=>{
-                dispatch(loginAction(email,password))
-              }}>Login</button>
+           <button className="btn btn-success" onClick={this.login}>Login</button>
           }
 
 

@@ -10,7 +10,7 @@
  import React from 'react';
  import {Treebeard} from 'react-treebeard';
  import {connect} from 'react-redux';
- import {showArticlesAction,createArticleAction} from 'Actions'
+ import {showArticlesAction,createArticleAction,filterMyArticlesAction} from 'Actions'
 
 
 
@@ -36,6 +36,8 @@
            dispatch(createArticleAction())
          }else if(/^View Articles$/i.test(node.name)){
            dispatch(showArticlesAction())
+         }else if(/^My Articles$/i.test(node.name)){
+           dispatch(filterMyArticlesAction())
          }
 
      }

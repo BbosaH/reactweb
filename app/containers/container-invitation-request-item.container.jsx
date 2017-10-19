@@ -22,6 +22,9 @@ class InvitationRequestItem extends Component{
 
   render(){
     const {dispatch}=this.props
+    
+
+
 
     return(
 

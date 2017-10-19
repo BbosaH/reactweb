@@ -10,13 +10,15 @@
 
   import{
     SHOW_ARTICLES,
-    CREATE_ARTICLE
+    CREATE_ARTICLE,
+    SHOW_MY_ARTICLES
   } from 'Settings'
 
   const defaultState ={
 
     redirect_show_articles:false,
     redirect_create_article:false,
+    my_filter:false,
 
 
     data : {
@@ -25,27 +27,15 @@
         children: [
             {
                 name: 'Create Article',
-                children: [
-                    { name: 'child1' },
-                    { name: 'child2' }
-                ]
+               
             },
             {
                 name: 'View Articles',
-                loading: true,
-                children: []
+                
             },
             {
-                name: 'Edit Articles',
-                children: [
-                    {
-                        name: 'nested parent',
-                        children: [
-                            { name: 'nested child 1' },
-                            { name: 'nested child 2' }
-                        ]
-                    }
-                ]
+                name: 'My Articles',
+                
             }
         ]
     }
@@ -65,6 +55,14 @@
           ...state,
           ...defaultState,
           redirect_create_article:true
+
+        }
+     case SHOW_MY_ARTICLES:
+        return{
+          ...state,
+          ...defaultState,
+          redirect_show_article:true,
+          my_filter:true,
 
         }
       default:

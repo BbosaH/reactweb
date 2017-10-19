@@ -42,6 +42,7 @@ module.exports =
       InvitationRequestItem : path.resolve(__dirname, 'app/containers/container-invitation-request-item.container.jsx/'),
       TileContainer :path.resolve(__dirname, 'app/containers/container-tiledashboard.container.jsx/'),
       SearchBox :path.resolve(__dirname, 'app/containers/container-searchbox.container.jsx/'),
+      ArticleView :path.resolve(__dirname, 'app/containers/container-article-view.container.jsx/'),
 
       //components
       DisplayMessage : path.resolve(__dirname, 'app/components/component-display-message.jsx/'),
@@ -54,6 +55,8 @@ module.exports =
       TileActions:path.resolve(__dirname, 'app/actions/tile-actions.jsx/'),
       TreeActions: path.resolve(__dirname, 'app/actions/tree-actions.jsx/'),
       CreateArticleActions: path.resolve(__dirname, 'app/actions/create-article-actions.jsx/'),
+      ArticleViewActions : path.resolve(__dirname, 'app/actions/article-view-actions.jsx/'),
+      ArticlesActions : path.resolve(__dirname, 'app/actions/articles-actions.jsx/'),
 
       //reducers
       LoginReducer:path.resolve(__dirname, 'app/reducers/login-reducers.jsx/'),
@@ -63,6 +66,8 @@ module.exports =
       TileReducer:path.resolve(__dirname, 'app/reducers/tile-reducer.jsx/'),
       TreeReducer:path.resolve(__dirname, 'app/reducers/tree-reducer.jsx/'),
       CreateArticleReducer:path.resolve(__dirname, 'app/reducers/create-article-reducer.jsx/'),
+      ArticleViewReducer :path.resolve(__dirname, 'app/reducers/article-view-reducer.jsx/'),
+      ArticlesReducer :path.resolve(__dirname, 'app/reducers/articles-reducer.jsx/'),
 
       //others
       ConfigureStore :path.resolve(__dirname, 'app/store/store-config.jsx/'),
@@ -70,6 +75,7 @@ module.exports =
       FirebaseIndex :path.resolve(__dirname, 'app/firebase/index.jsx/'),
       Utility : path.resolve(__dirname, 'app/utility/funcs.jsx/'),
       Email :path.resolve(__dirname, 'mail.jsx/'),
+      
 
 
 
@@ -87,7 +93,15 @@ module.exports =
         loader: 'babel-loader',
         exclude: /node_modules/,
         query: {
-          presets: ['es2015', 'react']
+            presets: ["react", "es2015","stage-2"],
+            plugins: [
+              "add-module-exports",
+              "transform-object-rest-spread",
+              "transform-es2015-destructuring",
+              "transform-class-properties"
+
+            ]
+
         },
         exclude :/(node_modules|bower_components)/
       },

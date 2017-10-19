@@ -27,6 +27,11 @@
  export const SHOW_ARTICLES="SHOW_ARTICLES"
  export const CREATE_ARTICLE="CREATE_ARTICLE"
  export const ARTICLE_TEXT_CHANGED="ARTICLE_TEXT_CHANGED"
+ export const ARTICLE_TITLE_CHANGED="ARTICLE_TITLE_CHANGED"
+ export const ARTICLE_SUBMITED="ARTICLE_SUBMITED"
+ export const ARTICLE_IMAGE_CHANGED="ARTICLE_IMAGE_CHANGED"
+ export const  ARTICLES_FETCHED = " ARTICLES_FETCHED"
+ export const SHOW_MY_ARTICLES="SHOW_MY_ARTICLES"
 
  export const INVITATION_REQUEST_STATUS_PENDING = "pending"
  export const INVITATION_REQUEST_STATUS_ACCEPTED = "accepted"
@@ -37,6 +42,8 @@
 
  export const API_URL = process.env.NODE_ENV === 'production' ?
  'http://localhost:3000' : 'http://localhost:3000';
+ export const ARTICLE_IMAGE_URL = API_URL+"/article_image";
+ export const ARTICLE_IMAGE_URL_PICK = API_URL+"/images/";
 
  export const PRIMARY_COLOR=""
  export const SECONDARY_COLOR=""
