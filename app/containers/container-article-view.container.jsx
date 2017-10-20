@@ -13,12 +13,13 @@ import {connect} from 'react-redux'
 import './../styles/view-articles.css'
 import firebase,{firebaseRef} from 'FirebaseIndex'
 import {ARTICLE_IMAGE_URL_PICK} from 'Settings'
+import DisplayMessage from 'DisplayMessage'
 
 class ArticleView extends Component{
 
   
  render(){
-   const{dispatch,image_url,body_text,title,user}=this.props
+   const{dispatch,image_url,body_text,title,user,topic}=this.props
    return(
        
          <div className=" col-sm-4 col-xs-12">
@@ -31,7 +32,7 @@ class ArticleView extends Component{
 
              <div className="news-source">
                <div className="source-section first-section">
-                 <a href="#">@React native</a>
+                 <a href="#">@{topic.name}</a>
                </div>
                <div className="source-section first-section first-lower-section subscribe">
                  <button type="button" className="btn btn-success btn-xs btn-subscribe"><i className="fa fa-newspaper-o fa-lg"></i> BOOKMARK</button>

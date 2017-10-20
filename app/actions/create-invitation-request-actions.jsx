@@ -40,21 +40,41 @@
      }).then(user => requestInvitationSuccess(dispatch))
        .catch(() => requestInvitationFailed(dispatch));
 
-      //  firebaseRef.child("Users").push({
-      //    email : 'henry@henry.com',
-      //    name  : 'joe henry',
-      //    role : 'normal',
-      //    status: 'ative'
-      //  }).then(user => requestInvitationSuccess(dispatch))
-      //    .catch(() => requestInvitationFailed(dispatch));
-      //
-      // firebaseRef.child("Users").push({
-      //      email : 'henry@henry.com',
-      //      name  : 'henry',
-      //      role : 'normal',
-      //      status:'active'
-      //    }).then(user => requestInvitationSuccess(dispatch))
-      //      .catch(() => requestInvitationFailed(dispatch));
+      //  firebaseRef.child("topics").push({
+      //    name  : 'React native',
+      //    description : 'This is about reacts mobile platform',
+      //    no_of_articles: 0
+      //  })
+      
+      // firebaseRef.child("topics").push({
+      //   name  : 'React',
+      //   description : 'This is about facebooks react library  platform',
+      //   no_of_articles: 0
+      // })
+
+      // firebaseRef.child("topics").push({
+      //    name  : 'Web development',
+      //    description : 'This is about web dev entirely',
+      //    no_of_articles: 0
+      //  })
+      
+      // firebaseRef.child("topics").push({
+      //   name  : 'Firebase db',
+      //   description : 'This is about firebase as a database',
+      //   no_of_articles: 0
+      // })
+
+      // firebaseRef.child("topics").push({
+      //    name  : 'Angular js',
+      //    description : 'This is about googgles web platform',
+      //    no_of_articles: 0
+      //  })
+      
+      // firebaseRef.child("topics").push({
+      //   name  : 'Graph ql',
+      //   description : 'This is about new data fetching techniques',
+      //   no_of_articles: 0
+      // })
 
    };
  }

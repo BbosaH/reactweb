@@ -13,7 +13,10 @@
    ARTICLE_SUBMITED,
    ARTICLE_TITLE_CHANGED,
    ARTICLE_TEXT_CHANGED,
-   ARTICLE_IMAGE_CHANGED
+   ARTICLE_IMAGE_CHANGED,
+   UPDATE_TOPICS,
+   SELECT_TOPIC_CHANGED,
+   ARTICLE_MESSAGE_CHANGED
  } from 'Settings'
 
  import {constructArrayFromFirebaseArray} from 'Utility'
@@ -44,8 +47,35 @@ export const submitArticleAction =(params)=>{
     articleRef.push(params);
   }
 }
- export const createOtherAction =()=>{
-   return{
-     type : CREATE_ARTICLE
+export const selectTopicAction =(topic_id)=>{
+  return{
+    type : SELECT_TOPIC_CHANGED,
+    payload:topic_id,
+  }
+}
+export const articleMessageChangedAction =()=>{
+  return{
+    type : ARTICLE_MESSAGE_CHANGED,
+  
+  }
+}
+ export const updateTopicsAction =()=>{
+   return(dispatch)=>{
+     const topicsRef = firebaseRef.child('topics');
+     topicsRef.on('value',(snapshot)=>{
+
+         var topics = constructArrayFromFirebaseArray(snapshot.val());
+         
+         
+         dispatch({
+          type : UPDATE_TOPICS,
+          payload:topics
+         })
+         //console.log("The Requests-->",invitation_requests);
+     },(err)=>{
+
+     })
+     
+
    }
  }

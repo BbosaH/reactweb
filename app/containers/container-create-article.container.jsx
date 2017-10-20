@@ -22,14 +22,23 @@
   changeArticleTextAction,
   changeArticleTitleAction,
   submitArticleAction,
-  changeArticleImageUrlAction
+  changeArticleImageUrlAction,
+  updateTopicsAction,
+  selectTopicAction,
+  articleMessageChangedAction
 } from 'Actions'
+import Select from 'react-select';
+import 'react-select/dist/react-select.css';
 import {API_URL,ARTICLE_IMAGE_URL} from 'Settings'
+import DisplayMessage from "DisplayMessage"
  
 
  class CreateArticle extends Component{
    
-
+  componentWillMount(){
+    const {dispatch}=this.props
+    dispatch(updateTopicsAction());
+  }
   
 
   handleBodyChange=(body_text,medium)=>{
@@ -43,26 +52,59 @@ import {API_URL,ARTICLE_IMAGE_URL} from 'Settings'
     dispatch(changeArticleTitleAction(this.refs.title.value));
    
   };
+  handleSelectChange=(val)=>{
+    console.log(val.value);
+    const {dispatch}=this.props
+    dispatch(selectTopicAction(val.value));
+   
+  };
 
   submitArticle=()=>{
     const {dispatch,title,body_text,
-      user,image_url,date_of_creation}=this.props;
+    user,image_url,date_of_creation,topic}=this.props;
     console.log("The to bes sub props ===>",this.props)
-    const params ={
-      title,
-      body_text,
-      user,
-      image_url,
-      date_of_creation: new Date().getTime()
+  
+    if(!title || !body_text || this.isEmpty(topic)){
+
+      dispatch(articleMessageChangedAction(params))
+    
+    }else{
+      const params ={
+        title,
+        body_text,
+        user,
+        image_url,
+        topic,
+        date_of_creation: new Date().getTime()
+      }
+      dispatch(submitArticleAction(params));
     }
-    dispatch(submitArticleAction(params));
+    
+    
+    
+    
+    
    
   };
+
+   isEmpty=(obj)=> {
+    for(var prop in obj) {
+        if(obj.hasOwnProperty(prop))
+            return false;
+    }
+
+    return JSON.stringify(obj) === JSON.stringify({});
+ }
 
 
   render(){
 
-    const {dispatch,title,body_text,user,image_url,date_of_creation}=this.props
+    const {dispatch,title,body_text,user,image_url,topics,
+      date_of_creation,article_message}=this.props
+
+      const select_topics = topics.map((topic)=>{
+            return { value : topic.id , label : topic.name}
+      })
 
     console.log("The props ===>",this.props)
    
@@ -75,6 +117,17 @@ import {API_URL,ARTICLE_IMAGE_URL} from 'Settings'
         
         <input id="article_title" value={title} ref='title' name="article_title" type="text" placeholder="Title" 
         className="form-control input-md" onChange={this.handleTitleChange}/>
+        <br/>
+        
+            
+              
+            <Select 
+              name="form-field-name"
+              options={select_topics}
+              onChange={this.handleSelectChange}
+             />
+            
+          
         <br/>
         <Editor
           tag="pre"
@@ -102,6 +155,7 @@ import {API_URL,ARTICLE_IMAGE_URL} from 'Settings'
               <button className="btn btn-success"  onClick={this.submitArticle}>Submit Article</button>    
           </div>   
           </div>
+          <DisplayMessage message={article_message}/>
       </div>
     
     )
@@ -117,7 +171,7 @@ import {API_URL,ARTICLE_IMAGE_URL} from 'Settings'
    (state)=>{
       const {createArticleReducer,login}=state;
      
-      const {body_text,title,image_url,date_of_creation}=createArticleReducer;
+      const {body_text,title,image_url,date_of_creation,topics,topic,article_message}=createArticleReducer;
       const {user}=login;
       return {
         body_text,
@@ -125,6 +179,9 @@ import {API_URL,ARTICLE_IMAGE_URL} from 'Settings'
         user,
         image_url,
         date_of_creation,
+        topics,
+        topic,
+        article_message
         
       }
    }

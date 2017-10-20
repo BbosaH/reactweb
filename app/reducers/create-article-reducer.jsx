@@ -11,7 +11,10 @@
    ARTICLE_TEXT_CHANGED,
    ARTICLE_TITLE_CHANGED,
    ARTICLE_SUBMITED,
-   ARTICLE_IMAGE_CHANGED
+   ARTICLE_IMAGE_CHANGED,
+   SELECT_TOPIC_CHANGED,
+   UPDATE_TOPICS,
+   ARTICLE_MESSAGE_CHANGED
 
  } from 'Settings';
  import RichTextEditor from 'react-rte';
@@ -21,6 +24,11 @@
    body_text:'',
    image_url:'',
    date_of_creation :'',
+   article_message:'',
+   topic:{
+
+   }
+   ,
    user :{
      
    },
@@ -29,6 +37,9 @@
    ],
    likes :[
      
+   ],
+   topics :[
+
    ]
  }
 
@@ -56,12 +67,44 @@
 
          
         }
-        case ARTICLE_IMAGE_CHANGED:
+      case ARTICLE_IMAGE_CHANGED:
         return{
           ...state,
           image_url:action.image_url
          
-        } 
+        }
+
+      case ARTICLE_MESSAGE_CHANGED:
+        return{
+          ...state,
+          article_message:"Empty fields Required !!!"
+         
+        }
+      case UPDATE_TOPICS:
+        return{
+          ...state,
+          topics:[
+            
+              ...state.topics,
+              ...action.payload
+            
+          ]
+         
+        }  
+      case SELECT_TOPIC_CHANGED:
+        return{
+          ...state,
+          topic: state.topics.filter((topic)=>{
+              return topic.id===action.payload
+          }).reduce((acc,val)=>{
+              return{
+                ...acc,
+                ...val
+              }
+
+          },{})
+         
+        }  
      default:
       return state;
 
