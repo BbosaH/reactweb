@@ -14,10 +14,8 @@ export const articlesReducer=(state=defaultState,action)=>{
         case ARTICLES_FETCHED:
             return{
                 ...state,
-                articles:[
-                    ...state.articles,
-                    ...action.payload
-                ]
+                ...defaultState,
+                articles:action.payload
             }
         default:
             return state;

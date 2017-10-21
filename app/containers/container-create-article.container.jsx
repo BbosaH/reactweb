@@ -31,6 +31,7 @@ import Select from 'react-select';
 import 'react-select/dist/react-select.css';
 import {API_URL,ARTICLE_IMAGE_URL} from 'Settings'
 import DisplayMessage from "DisplayMessage"
+
  
 
  class CreateArticle extends Component{
@@ -54,47 +55,20 @@ import DisplayMessage from "DisplayMessage"
   };
   handleSelectChange=(val)=>{
     console.log(val.value);
-    const {dispatch}=this.props
+    const {dispatch}=this.props;
     dispatch(selectTopicAction(val.value));
    
   };
 
   submitArticle=()=>{
-    const {dispatch,title,body_text,
-    user,image_url,date_of_creation,topic}=this.props;
-    console.log("The to bes sub props ===>",this.props)
+    
+    const {dispatch,title,body_text,user,image_url,date_of_creation,topic}=this.props;
+    const params ={title,body_text,user,image_url,topic,date_of_creation:new Date().getTime()}
+    dispatch(submitArticleAction(params));
   
-    if(!title || !body_text || this.isEmpty(topic)){
-
-      dispatch(articleMessageChangedAction(params))
-    
-    }else{
-      const params ={
-        title,
-        body_text,
-        user,
-        image_url,
-        topic,
-        date_of_creation: new Date().getTime()
-      }
-      dispatch(submitArticleAction(params));
-    }
-    
-    
-    
-    
-    
-   
   };
 
-   isEmpty=(obj)=> {
-    for(var prop in obj) {
-        if(obj.hasOwnProperty(prop))
-            return false;
-    }
-
-    return JSON.stringify(obj) === JSON.stringify({});
- }
+   
 
 
   render(){
@@ -102,9 +76,9 @@ import DisplayMessage from "DisplayMessage"
     const {dispatch,title,body_text,user,image_url,topics,
       date_of_creation,article_message}=this.props
 
-      const select_topics = topics.map((topic)=>{
+    const select_topics = topics.map((topic)=>{
             return { value : topic.id , label : topic.name}
-      })
+    })
 
     console.log("The props ===>",this.props)
    

@@ -64,6 +64,7 @@
           title :'',
           body_text:'',
           image_url:'',
+          article_message:''
 
          
         }

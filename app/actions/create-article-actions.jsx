@@ -19,7 +19,8 @@
    ARTICLE_MESSAGE_CHANGED
  } from 'Settings'
 
- import {constructArrayFromFirebaseArray} from 'Utility'
+ import {constructArrayFromFirebaseArray,objectIsEmpty} from 'Utility'
+
 
  export const changeArticleTextAction =(text)=>{
    return{
@@ -40,11 +41,18 @@ export const changeArticleImageUrlAction =(text)=>{
   }
 }
 export const submitArticleAction =(params)=>{
+  
   return(dispatch)=>{
-    dispatch({type : ARTICLE_SUBMITED,
-    payload:params})
-    const articleRef=firebaseRef.child('articles');
-    articleRef.push(params);
+    if(objectIsEmpty(params.topic) || !params.title || !params.body_text){
+      dispatch(articleMessageChangedAction());
+    }else{
+      firebaseRef.child('articles').push(params)
+      dispatch({type : ARTICLE_SUBMITED,
+      payload:params});
+
+    }
+  
+   
   }
 }
 export const selectTopicAction =(topic_id)=>{
@@ -53,7 +61,7 @@ export const selectTopicAction =(topic_id)=>{
     payload:topic_id,
   }
 }
-export const articleMessageChangedAction =()=>{
+export const articleMessageChangedAction=()=>{
   return{
     type : ARTICLE_MESSAGE_CHANGED,
   

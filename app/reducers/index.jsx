@@ -16,6 +16,12 @@
  import {createArticleReducer} from "CreateArticleReducer"
  import {articlesReducer} from "ArticlesReducer"
  import {articleViewReducer} from "ArticleViewReducer"
+ import {commentBoxReducer} from 'CommentBoxReducer';
+ import {sideArticleListReducer} from 'SideArticleListReducer';
+ import {commentFormReducer} from 'CommentFormReducer';
+ import {displayCommentsReducer} from 'DisplayCommentsReducer';
+ 
+ 
 
 
  const combinedreducer = combineReducers({
@@ -27,7 +33,12 @@
    treeReducer : treeReducer,
    createArticleReducer:createArticleReducer,
    articlesReducer:articlesReducer,
-   articleViewReducer:articleViewReducer
+   articleViewReducer:articleViewReducer,
+   commentBoxReducer:commentBoxReducer,
+   sideArticleListReducer:sideArticleListReducer,
+   commentFormReducer:commentFormReducer,
+   displayCommentsReducer:displayCommentsReducer
+  
 
  });
 

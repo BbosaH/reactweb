@@ -12,7 +12,8 @@
  import{
    SHOW_ARTICLES,
    CREATE_ARTICLE,
-   SHOW_MY_ARTICLES
+   SHOW_MY_ARTICLES,
+   MAKE_STATE_DEFAULT
  } from 'Settings'
 
  import {constructArrayFromFirebaseArray} from 'Utility'
@@ -30,5 +31,10 @@
  export const filterMyArticlesAction =()=>{
    return{
      type : SHOW_MY_ARTICLES
+   }
+ }
+ export const defaultifyState=()=>{
+   return{
+     type : MAKE_STATE_DEFAULT
    }
  }

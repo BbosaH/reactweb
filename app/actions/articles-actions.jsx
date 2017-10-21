@@ -2,8 +2,11 @@ import{
     ARTICLES_FETCHED
  } from 'Settings';
  import firebase,{firebaseRef} from 'FirebaseIndex'
+ import React from 'react'
 
  import {constructArrayFromFirebaseArray} from 'Utility'
+
+ import ArticleView from 'ArticleView'
 
  export const fetchArticlesAction=()=>{
 
@@ -13,6 +16,7 @@ import{
     userRef.on('value',(snapshot)=>{
 
          var articles = constructArrayFromFirebaseArray(snapshot.val());
+        
          console.log("The articles",articles);
          dispatch({
            type: ARTICLES_FETCHED,
@@ -27,3 +31,8 @@ import{
     }
 
  }
+
+
+  
+ 
+

@@ -14,18 +14,26 @@ import './../styles/view-articles.css'
 import firebase,{firebaseRef} from 'FirebaseIndex'
 import {ARTICLE_IMAGE_URL_PICK} from 'Settings'
 import DisplayMessage from 'DisplayMessage'
+import {articleItemClicked} from "Actions"
 
 class ArticleView extends Component{
 
+  itemClicked=()=>{
+  
+  const{dispatch,image_url,body_text,title,user,topic,id}=this.props
+  const params =this.props
+  dispatch(articleItemClicked(params))
+
+  }
   
  render(){
-   const{dispatch,image_url,body_text,title,user,topic}=this.props
+   const{dispatch,image_url,body_text,title,user,topic,id}=this.props
    return(
        
-         <div className=" col-sm-4 col-xs-12">
+         <div className=" col-sm-4 col-xs-12" onClick={this.itemClicked}>
            <div className="headline-card tracked loaded" style={{height: 600}}>
              <a className="image-wrap" href="#">
-                 <img className="image image-small" src={ARTICLE_IMAGE_URL_PICK+image_url} />
+                 <img className="image image-small" src={image_url} />
              </a>
 
             
@@ -78,6 +86,4 @@ class ArticleView extends Component{
    )
  }
 }
-export default connect(
-  
-)(ArticleView)
+export default connect()(ArticleView)

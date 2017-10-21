@@ -8,15 +8,18 @@
  * @Last modified time: 2017-10-17T20:09:25+03:00
  */
 import{
-  ARTICLE_UPDATED
+  ARTICLE_UPDATED,
+  ARTICLE_CLICKED
  } from 'Settings';
 
-
+import {constructArrayFromFirebaseArray} from 'Utility'
  const defaultState ={
+   id:'',
    title:'',
    body_text:'',
    image_url:'',
    date_of_creation :'',
+   redirect_to_detail:false,
    user :{
      
    },
@@ -39,6 +42,24 @@ import{
           ...state,
           ...action.payload
 
+        }
+      case  ARTICLE_CLICKED:
+       
+        return {
+          
+          ...state,
+          ...defaultState,
+          id:action.payload.id,
+          title:action.payload.title,
+          body_text:action.payload.body_text,
+          topic:action.payload.topic,
+          user:action.payload.user,
+          image_url :action.payload.image_url,
+          date_of_creation:action.payload.date_of_creation,
+          comments :(action.payload.comments)
+          ? constructArrayFromFirebaseArray(action.payload.comments):[],
+          likes :(action.payload.likes)?action.payload.likes:[], 
+          redirect_to_detail:true
         }
      
       default:

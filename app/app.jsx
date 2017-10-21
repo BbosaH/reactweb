@@ -15,11 +15,12 @@ import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.css';
 // import {BrowserRouter as Router ,Route,IndexRoute,hashHistory} from 'react-router';
 import {BrowserRouter,Route,Switch} from 'react-router-dom';
-import {config} from 'ConfigureStore'
-import {Provider} from 'react-redux'
+import {config} from 'ConfigureStore';
+import {Provider} from 'react-redux';
 import IndexContainer from 'IndexContainer'
 import HomeContainer from 'HomeContainer';
-import ShareKnowlegeOptions  from 'ShareKnowlegeOptions'
+import ShareKnowlegeOptions  from 'ShareKnowlegeOptions';
+
 
 
 const store = config();

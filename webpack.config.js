@@ -43,9 +43,17 @@ module.exports =
       TileContainer :path.resolve(__dirname, 'app/containers/container-tiledashboard.container.jsx/'),
       SearchBox :path.resolve(__dirname, 'app/containers/container-searchbox.container.jsx/'),
       ArticleView :path.resolve(__dirname, 'app/containers/container-article-view.container.jsx/'),
+      ArticleDetail :path.resolve(__dirname, 'app/containers/container-article-detail.container.jsx/'),
+      CommentBox :path.resolve(__dirname, 'app/containers/container-comment-box.container.jsx/'),
+      CommentForm :path.resolve(__dirname, 'app/containers/container-comment-form.container.jsx/'),
+      SideArticleList : path.resolve(__dirname, 'app/containers/container-side-article-list.container.jsx/'),
+      FullArticleBody : path.resolve(__dirname, 'app/containers/container-full-article-body.container.jsx/'),
+      SideArticle :  path.resolve(__dirname, 'app/containers/container-side-article.container.jsx/'),
 
       //components
       DisplayMessage : path.resolve(__dirname, 'app/components/component-display-message.jsx/'),
+      DisplayComments : path.resolve(__dirname, 'app/components/component-display-comments.jsx/'),
+      DisplayComment : path.resolve(__dirname, 'app/components/component-display-comment.jsx/'),
 
       //actions
       LoginActions:path.resolve(__dirname, 'app/actions/login-actions.jsx/'),
@@ -57,6 +65,11 @@ module.exports =
       CreateArticleActions: path.resolve(__dirname, 'app/actions/create-article-actions.jsx/'),
       ArticleViewActions : path.resolve(__dirname, 'app/actions/article-view-actions.jsx/'),
       ArticlesActions : path.resolve(__dirname, 'app/actions/articles-actions.jsx/'),
+      ArticleDetailActions : path.resolve(__dirname, 'app/actions/article-detail-actions.jsx/'),
+      CommentBoxActions : path.resolve(__dirname, 'app/actions/comment-box-actions.jsx/'),
+      SideArticleListActions : path.resolve(__dirname, 'app/actions/side-article-list-actions.jsx/'),
+      CommentFormActions : path.resolve(__dirname, 'app/actions/comment-form-actions.jsx/'),
+      DisplayCommentsActions : path.resolve(__dirname, 'app/actions/display-comments-actions.jsx/'),
 
       //reducers
       LoginReducer:path.resolve(__dirname, 'app/reducers/login-reducers.jsx/'),
@@ -68,6 +81,11 @@ module.exports =
       CreateArticleReducer:path.resolve(__dirname, 'app/reducers/create-article-reducer.jsx/'),
       ArticleViewReducer :path.resolve(__dirname, 'app/reducers/article-view-reducer.jsx/'),
       ArticlesReducer :path.resolve(__dirname, 'app/reducers/articles-reducer.jsx/'),
+      ArticleDetailReducer : path.resolve(__dirname, 'app/reducers/article-detail-reducer.jsx/'),
+      CommentBoxReducer : path.resolve(__dirname, 'app/reducers/comment-box-reducer.jsx/'),
+      SideArticleListReducer : path.resolve(__dirname, 'app/reducers/side-article-list-reducer.jsx/'),
+      CommentFormReducer :  path.resolve(__dirname, 'app/reducers/comment-form-reducer.jsx/'),
+      DisplayCommentsReducer :path.resolve(__dirname, 'app/reducers/display-comments-reducer.jsx/'),
 
       //others
       ConfigureStore :path.resolve(__dirname, 'app/store/store-config.jsx/'),

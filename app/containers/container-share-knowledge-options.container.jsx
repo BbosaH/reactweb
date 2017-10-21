@@ -14,29 +14,28 @@ import {connect} from 'react-redux';
 import TreeContainer from 'TreeContainer';
 import CreateArticle from 'CreateArticle';
 import ViewArticles from  'ViewArticles';
-import SearchBox from 'SearchBox'
+import SearchBox from 'SearchBox';
+import ArticleDetail from 'ArticleDetail';
 
 class ShareKnowlegeOptions extends Component{
 
 
   render(){
-    const {dispatch,redirect_show_articles,redirect_create_article}=this.props
+    const {dispatch,redirect_show_articles,redirect_create_article,redirect_to_detail}=this.props
     return(
 
 
         <div className="row">
            <SearchBox/>
           <div className="col-sm-2">
-
            <TreeContainer/>
-
-
           </div>
           <div className="col-sm-10">
               {(redirect_show_articles)?
                   <ViewArticles/>
                 : (redirect_create_article)?
-                    <CreateArticle/> :   <ViewArticles/>
+                    <CreateArticle/> :(redirect_to_detail)? <ArticleDetail/>
+                     : <ViewArticles/>
               }
 
           </div>
@@ -55,11 +54,13 @@ class ShareKnowlegeOptions extends Component{
 
 export default connect(
   (state)=>{
-    const {treeReducer}=state;
+    const{treeReducer,articleViewReducer}=state;
     const{redirect_show_articles,redirect_create_article}=treeReducer;
+    const {redirect_to_detail}=articleViewReducer;
     return{
       redirect_show_articles,
-      redirect_create_article
+      redirect_create_article,
+      redirect_to_detail
     }
   }
 )(ShareKnowlegeOptions)

@@ -11,7 +11,8 @@
   import{
     SHOW_ARTICLES,
     CREATE_ARTICLE,
-    SHOW_MY_ARTICLES
+    SHOW_MY_ARTICLES,
+    MAKE_STATE_DEFAULT
   } from 'Settings'
 
   const defaultState ={
@@ -48,6 +49,7 @@
          ...state,
          ...defaultState,
          redirect_show_articles:true
+         
 
        }
       case CREATE_ARTICLE:
@@ -56,18 +58,25 @@
           ...defaultState,
           redirect_create_article:true
 
+
         }
      case SHOW_MY_ARTICLES:
         return{
           ...state,
           ...defaultState,
-          redirect_show_article:true,
+          redirect_show_articles:true,
           my_filter:true,
 
+        }
+      case MAKE_STATE_DEFAULT:
+        return{
+          ...state,
+          ...defaultState,
         }
       default:
        return state;
 
-    }
+     }
+     
 
   }

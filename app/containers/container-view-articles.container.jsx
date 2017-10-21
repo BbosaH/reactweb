@@ -36,12 +36,16 @@ class ViewArticles extends Component{
         )
       });
       
-    }
-    return articles.map((article)=>{
+    }else{
+      return articles.map((article)=>{
         return (
           <ArticleView key={article.id} {...article}/>
         )
-    });
+     });
+
+    }
+    return;
+    
    
 
   }
@@ -58,6 +62,7 @@ class ViewArticles extends Component{
  }
 }
 export default connect(
+  
   (state)=>{
     const {articlesReducer,treeReducer,login}=state;
     const {my_filter}=treeReducer;
