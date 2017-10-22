@@ -6,11 +6,17 @@ export const fetchArticleComments=(article_id)=>{
         firebase.database().ref(`/articles/${article_id}/comments`)
         .on('value',(snapshot)=>{
             console.log("the comments are =>",snapshot.val())
-            const article_comments =constructArrayFromFirebaseArray(snapshot.val());
-            dispatch({
-                type : ARTICLE_COMMENTS_UPDATED,
-                payload : article_comments
-            })
+            const brought_comments = snapshot.val();
+            if(brought_comments){
+                
+                const article_comments =constructArrayFromFirebaseArray(brought_comments);
+                dispatch({
+                    type : ARTICLE_COMMENTS_UPDATED,
+                    payload : article_comments
+                })
+
+            }
+            
         },(err)=>{
             console.log(err);
         })

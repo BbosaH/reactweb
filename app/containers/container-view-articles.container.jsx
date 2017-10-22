@@ -26,6 +26,7 @@ class ViewArticles extends Component{
   }
   renderArticles(articles){
     const{dispatch,my_filter,user}=this.props;
+    articles.reverse();
     if(my_filter){
 
       return articles.filter((article)=>{

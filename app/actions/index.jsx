@@ -21,4 +21,4 @@
  export * from 'SideArticleListActions';
  export * from 'CommentFormActions';
  export * from 'DisplayCommentsActions';
- 
+ export * from 'SearchBoxActions';

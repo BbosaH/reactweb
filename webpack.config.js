@@ -70,6 +70,7 @@ module.exports =
       SideArticleListActions : path.resolve(__dirname, 'app/actions/side-article-list-actions.jsx/'),
       CommentFormActions : path.resolve(__dirname, 'app/actions/comment-form-actions.jsx/'),
       DisplayCommentsActions : path.resolve(__dirname, 'app/actions/display-comments-actions.jsx/'),
+      SearchBoxActions : path.resolve(__dirname, 'app/actions/search-box-actions.jsx/'),
 
       //reducers
       LoginReducer:path.resolve(__dirname, 'app/reducers/login-reducers.jsx/'),
