@@ -68,6 +68,20 @@ import DisplayMessage from "DisplayMessage"
   
   };
 
+  getValue = (value, options) => {
+    if (!value) { return value }
+
+    // If value is represented in the current options, just return that option.
+    const currentOption = options.find(option => option.value === value);
+    if (currentOption) { return currentOption }
+
+    // If value is truthy but not contained in the options, it must be new.
+    // Pass as an option object to satisfy react-select's Creatable value api.
+    // Ref: https://github.com/JedWatson/react-select/issues/828
+    return { value, label: value };
+  };
+
+
    
 
 
@@ -79,6 +93,7 @@ import DisplayMessage from "DisplayMessage"
     const select_topics = topics.map((topic)=>{
             return { value : topic.id , label : topic.name}
     })
+    
 
     console.log("The props ===>",this.props)
    

@@ -49,7 +49,9 @@ module.exports =
       SideArticleList : path.resolve(__dirname, 'app/containers/container-side-article-list.container.jsx/'),
       FullArticleBody : path.resolve(__dirname, 'app/containers/container-full-article-body.container.jsx/'),
       SideArticle :  path.resolve(__dirname, 'app/containers/container-side-article.container.jsx/'),
-
+      ViewVideoCourses:path.resolve(__dirname, 'app/containers/container-view-videocourses.container.jsx/'),
+      CreateVideos : path.resolve(__dirname, 'app/containers/container-create-video.container.jsx/'),
+      
       //components
       DisplayMessage : path.resolve(__dirname, 'app/components/component-display-message.jsx/'),
       DisplayComments : path.resolve(__dirname, 'app/components/component-display-comments.jsx/'),
@@ -71,7 +73,7 @@ module.exports =
       CommentFormActions : path.resolve(__dirname, 'app/actions/comment-form-actions.jsx/'),
       DisplayCommentsActions : path.resolve(__dirname, 'app/actions/display-comments-actions.jsx/'),
       SearchBoxActions : path.resolve(__dirname, 'app/actions/search-box-actions.jsx/'),
-
+      CreateVideoActions: path.resolve(__dirname, 'app/actions/create-video-actions.jsx/'),
       //reducers
       LoginReducer:path.resolve(__dirname, 'app/reducers/login-reducers.jsx/'),
       CreateInvitationRequestReducer:path.resolve(__dirname, 'app/reducers/create-invitation-request-reducers.jsx/'),
@@ -87,7 +89,7 @@ module.exports =
       SideArticleListReducer : path.resolve(__dirname, 'app/reducers/side-article-list-reducer.jsx/'),
       CommentFormReducer :  path.resolve(__dirname, 'app/reducers/comment-form-reducer.jsx/'),
       DisplayCommentsReducer :path.resolve(__dirname, 'app/reducers/display-comments-reducer.jsx/'),
-
+      CreateVideoReducer : path.resolve(__dirname, 'app/reducers/create-video-reducer.jsx/'),
       //others
       ConfigureStore :path.resolve(__dirname, 'app/store/store-config.jsx/'),
       Settings : path.resolve(__dirname, 'app/utility/settings.jsx/'),

@@ -23,13 +23,13 @@ export class LoginComponent extends Component{
     super(props);
   }
 
-  onChangeEmail(dispatch){
-    // var email = this.refs.email.value;
-    // dispatch(emailChangeAction(email))
+  onChangeEmail=(email)=>{
+     const{dispatch} = this.props;
+     dispatch(loginEmailChangeAction(email));
   }
-  onChangePassword(dispatch){
-    // var password =this.refs.password.value;
-    // dispatch(passwordChangeAction(password));
+  onChangePassword=(password)=>{
+    const{dispatch} = this.props;
+    dispatch(loginPasswordChangeAction(password));
   }
 
   login=()=>{
@@ -37,12 +37,6 @@ export class LoginComponent extends Component{
     const{dispatch,email,password}=this.props;
     dispatch(loginAction(email,password));
   }
-
-  redirecttoHomePage(){
-
-  }
-
-
 
   render(){
     const {dispatch,email,password,should_redirect,login_message}=this.props;
@@ -52,20 +46,19 @@ export class LoginComponent extends Component{
         <div className="col-sm-12">
 
           <input type="email" value={email} placeholder="enter email"  onChange={
-                (e)=>{
-                  dispatch(loginEmailChangeAction(e.target.value));
-                 }
+              (e)=>{
+                dispatch(loginEmailChangeAction(e.target.value));
+              }
             }/>
 
         </div>
         <br/>
         <div className="col-sm-12">
           <input type="password"  value={password} placeholder="enter password"  onChange={
-
-              (e)=>{
+               (e)=>{
                 dispatch(loginPasswordChangeAction(e.target.value));
-               }
-            }/>
+              }
+          }/>
 
         </div>
         <br/>

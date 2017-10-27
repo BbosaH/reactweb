@@ -20,6 +20,7 @@
  import {sideArticleListReducer} from 'SideArticleListReducer';
  import {commentFormReducer} from 'CommentFormReducer';
  import {displayCommentsReducer} from 'DisplayCommentsReducer';
+ import {createVideoReducer} from  'CreateVideoReducer'
  
  
 
@@ -37,7 +38,8 @@
    commentBoxReducer:commentBoxReducer,
    sideArticleListReducer:sideArticleListReducer,
    commentFormReducer:commentFormReducer,
-   displayCommentsReducer:displayCommentsReducer
+   displayCommentsReducer:displayCommentsReducer,
+   createVideoReducer:createVideoReducer
   
 
  });

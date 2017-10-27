@@ -34,6 +34,8 @@
     "react": "^15.6.1",
     "react-bootstrap": "^0.31.2",
     "react-dom": "^15.6.1",
+    "react-firebase-file-uploader": "^2.4.1",
+    "react-html-parser": "^2.0.1",
     "react-images-uploader": "^1.1.0",
     "react-medium-editor": "^1.8.1",
     "react-router-dom": "^4.2.2",
@@ -41,6 +43,7 @@
     "react-select": "^1.0.0-rc.10",
     "react-treebeard": "^2.0.3",
     "uuid-js": "^0.7.5",
+    "video-react": "^0.8.9",
     "xoauth2": "^1.2.0"
   },
   "devDependencies": {

@@ -1,11 +1,14 @@
 import React,{Component} from 'react';
 import {connect} from 'react-redux';
 import {formatDate} from 'Utility'
+import ReactHtmlParser, { processNodes,
+ convertNodeToElement, htmlparser2 } from 'react-html-parser';
 class FullArticleBody extends Component{
     render(){
         const {dispatch,id, title, body_text,image_url,
             date_of_creation , redirect_to_detail,user ,topic ,comments,
             likes }=this.props;
+        const htmlText = body_text;
         return(
 
             <div className="col-sm-7">
@@ -15,7 +18,7 @@ class FullArticleBody extends Component{
                         <img src={image_url} alt="" style={{height:300,width:600}} className="thumb"/>
                     </a>
                     <h1>{title}</h1>
-                    <p>{body_text}</p>
+                    <p>{ReactHtmlParser(htmlText)}</p>
                     <p>Posted  by: {user.name} </p>
                     <div>
                 <span className="badge"> {formatDate(date_of_creation)}</span><div className="pull-right">

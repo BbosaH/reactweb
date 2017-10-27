@@ -13,7 +13,9 @@
    SHOW_ARTICLES,
    CREATE_ARTICLE,
    SHOW_MY_ARTICLES,
-   MAKE_STATE_DEFAULT
+   MAKE_STATE_DEFAULT,
+   SHOW_VIDEO_COURSES,
+   CREATE_VIDEO_COURSES
  } from 'Settings'
 
  import {constructArrayFromFirebaseArray} from 'Utility'
@@ -38,3 +40,14 @@
      type : MAKE_STATE_DEFAULT
    }
  }
+export const showVideoCoursesAction=()=>{
+  return{
+     type: SHOW_VIDEO_COURSES
+  }
+}
+
+export const createVideoAction=()=>{
+  return{
+    type: CREATE_VIDEO_COURSES
+  }
+}

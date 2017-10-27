@@ -6,7 +6,7 @@ import {changeCommentValue,submitCommentAction} from 'Actions'
 class CommentForm extends Component{
    
     changeComment =()=>{
-        const {dispatch}=this.props;
+        const {dispatch,comment_value}=this.props;
         dispatch(changeCommentValue(this.refs.comment.value))
     }
     submitComment=()=>{
@@ -22,7 +22,7 @@ class CommentForm extends Component{
 
     }
    render(){
-        
+        const {comment_value}=this.props;
         return(
            
         
@@ -32,18 +32,10 @@ class CommentForm extends Component{
                 <div className="form-group">
                     <label  className="col-sm-2 control-label">Comment</label>
                     <div className="col-sm-10">
-                      <textarea className="form-control" ref="comment" name="addComment" id="addComment" rows="5" onChange={this.changeComment}></textarea>
+                      <textarea className="form-control"  ref="comment" name="addComment" id="addComment" rows="5" onChange={this.changeComment}></textarea>
                     </div>
                 </div>
-                {/* <div className="form-group">
-                    <label  className="col-sm-2 control-label">Upload media</label>
-                    <div className="col-sm-10">                    
-                        <div className="input-group">
-                          <div className="input-group-addon">http://</div>
-                          <input type="text" className="form-control" name="uploadMedia" id="uploadMedia"/>
-                        </div>
-                    </div>
-                </div> */}
+               
                 <div className="form-group">
                     <div className="col-sm-offset-2 col-sm-10">                    
                         <button onClick={this.submitComment} className="btn btn-success btn-circle text-uppercase" type="button"><span className="glyphicon glyphicon-send"></span> Summit comment</button>

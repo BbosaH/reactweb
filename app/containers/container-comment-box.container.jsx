@@ -26,13 +26,14 @@ class CommentBox extends Component{
      }
  
      setCommentFormFlag=()=>{
+    
         const{dispatch}=this.props;
         dispatch(setCommentFormFlagAction());
      }
 
 
     render(){
-        const {dispatch,show_comment_form,show_comments}=this.props;
+      const {dispatch,show_comment_form,show_comments}=this.props;
       return(
         <div className="container">
         <div className="row">

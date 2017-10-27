@@ -1,3 +1,4 @@
+
 /**
  * @Author: Henry Bbosa
  * @Date:   2017-10-17T17:09:50+03:00
@@ -15,9 +16,13 @@ import firebase,{firebaseRef} from 'FirebaseIndex'
 import {ARTICLE_IMAGE_URL_PICK} from 'Settings'
 import DisplayMessage from 'DisplayMessage'
 import {articleItemClicked} from "Actions"
+import ReactHtmlParser, { processNodes,
+ convertNodeToElement, htmlparser2 } from 'react-html-parser';
+ 
 
 class ArticleView extends Component{
-
+  
+  
   itemClicked=()=>{
   
   const{dispatch,image_url,body_text,title,user,topic,id}=this.props
@@ -28,6 +33,8 @@ class ArticleView extends Component{
   
  render(){
    const{dispatch,image_url,body_text,title,user,topic,id}=this.props
+   const htmlText = body_text;
+  
    return(
        
          <div className=" col-sm-4 col-xs-12" onClick={this.itemClicked}>
@@ -63,9 +70,10 @@ class ArticleView extends Component{
              </div>
 
              <div className="text-preview">
-               <p>
-                 {body_text}
-               </p>
+               <div>
+                 {ReactHtmlParser(htmlText)}
+
+               </div>
              </div>
 
              <div className="news-tags">

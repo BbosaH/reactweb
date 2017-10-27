@@ -5,6 +5,8 @@ import SideArticleList from 'SideArticleList'
 import FullArticleBody from 'FullArticleBody'
 
 class ArticleDetail extends Component{
+   
+	
 
     render(){
 

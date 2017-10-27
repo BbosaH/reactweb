@@ -12,13 +12,17 @@
     SHOW_ARTICLES,
     CREATE_ARTICLE,
     SHOW_MY_ARTICLES,
-    MAKE_STATE_DEFAULT
+    MAKE_STATE_DEFAULT,
+    SHOW_VIDEO_COURSES,
+    CREATE_VIDEO_COURSES
   } from 'Settings'
 
   const defaultState ={
 
     redirect_show_articles:false,
     redirect_create_article:false,
+    redirect_show_videos:false,
+    redirect_create_videos:false,
     my_filter:false,
 
 
@@ -36,6 +40,24 @@
             },
             {
                 name: 'My Articles',
+                
+            }
+        ]
+    },
+    data2 : {
+        name: 'Videos',
+        toggled: false,
+        children: [
+            {
+                name: 'Create Video course',
+               
+            },
+            {
+                name: 'View Video courses',
+                
+            },
+            {
+                name: 'My videos',
                 
             }
         ]
@@ -62,6 +84,7 @@
         }
      case SHOW_MY_ARTICLES:
         return{
+          
           ...state,
           ...defaultState,
           redirect_show_articles:true,
@@ -72,6 +95,19 @@
         return{
           ...state,
           ...defaultState,
+        }
+      case SHOW_VIDEO_COURSES:
+        return{
+          ...state,
+          ...defaultState,
+          redirect_show_videos:true,
+
+        }
+      case CREATE_VIDEO_COURSES:
+        return{
+          ...state,
+          ...defaultState,
+          redirect_create_videos:true
         }
       default:
        return state;

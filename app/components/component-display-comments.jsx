@@ -6,6 +6,7 @@ import {fetchArticleComments} from 'Actions'
 
 
 class DisplayComments extends Component{
+  
    componentWillMount(){
       const{dispatch,article_id}=this.props;
       dispatch(fetchArticleComments(article_id))
@@ -41,6 +42,7 @@ class DisplayComments extends Component{
 export default connect(
 
   (state)=>{
+    
     const{articleViewReducer,displayCommentsReducer}=state;
     const {comments}= displayCommentsReducer;
     const {id}=articleViewReducer;

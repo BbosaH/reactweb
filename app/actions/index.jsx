@@ -22,3 +22,4 @@
  export * from 'CommentFormActions';
  export * from 'DisplayCommentsActions';
  export * from 'SearchBoxActions';
+ export * from 'CreateVideoActions';
