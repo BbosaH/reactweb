@@ -53,20 +53,29 @@ import {constructArrayFromFirebaseArray} from 'Utility'
           id:action.payload.id,
           title:action.payload.title,
           body_text:action.payload.body_text,
-          topic:action.payload.topic,
-          user:action.payload.user,
+          topic:{
+            ...!!action.payload.topic?action.payload.topic:{}
+          },
+          user:{
+            ...!!action.payload.user?action.payload.user:{}
+          },
           image_url :action.payload.image_url,
           date_of_creation:action.payload.date_of_creation,
-          comments :(action.payload.comments)
-          ? constructArrayFromFirebaseArray(action.payload.comments):[],
+          comments :[
+
+            ...!!action.payload.comments
+              ? constructArrayFromFirebaseArray(action.payload.comments):[]
+
+          ],
           likes :(action.payload.likes)?action.payload.likes:[], 
           redirect_to_detail:true
         }
       case ARTICLE_COMMENTS_UPDATED:
             return{
                 ...state,
-                comments :(action.payload)
-          ? constructArrayFromFirebaseArray(action.payload):[],
+                comments :[
+                  ...!!action.payload? constructArrayFromFirebaseArray(action.payload):[],
+                ]
       }
      
       default:

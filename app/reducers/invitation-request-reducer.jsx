@@ -41,7 +41,7 @@ export const invitationRequestReducer = (state=defaultState,action)=>{
           ...state,
           invitations:[
             ...state.invitations,
-            ...action.payload
+            ...!!action.payload?action.payload:[]
           ]
         }
 

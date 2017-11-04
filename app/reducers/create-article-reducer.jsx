@@ -87,7 +87,7 @@
           topics:[
             
               ...state.topics,
-              ...action.payload
+              ...!!action.payload?action.payload:[]
             
           ]
          
