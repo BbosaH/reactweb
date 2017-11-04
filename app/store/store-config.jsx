@@ -9,14 +9,15 @@
  */
 
 import {createStore, applyMiddleware,combineReducers,compose} from 'redux';
-import reduxthunk from 'redux-thunk'
+import reduxthunk from 'redux-thunk';
+import {ActionLogging,StateLogging} from 'Logging'
 
 import combinedreducer from "CombinedReducer"
 
 export const config =(initalState={})=>{
 
 
-   const store = createStore(combinedreducer,initalState,compose(applyMiddleware(reduxthunk),window.devToolsExtension?
+   const store = createStore(combinedreducer,initalState,compose(applyMiddleware(reduxthunk,ActionLogging,StateLogging),window.devToolsExtension?
      window.devToolsExtension() : f=>f));
 
     //  const store = createStore(combinedreducer,initalState,applyMiddleware(ReduxThunk));

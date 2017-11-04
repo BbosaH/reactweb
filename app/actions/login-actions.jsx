@@ -25,6 +25,7 @@ import {constructArrayFromFirebaseArray} from 'Utility'
 export const loginAction =(email,password)=>{
 
   return (dispatch) => {
+    
     dispatch({type: LOGIN_USER});
 
     const userRef=firebaseRef.child('Users');

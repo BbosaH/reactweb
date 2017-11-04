@@ -9,7 +9,8 @@
  */
 import{
   ARTICLE_UPDATED,
-  ARTICLE_CLICKED
+  ARTICLE_CLICKED,
+  ARTICLE_COMMENTS_UPDATED
  } from 'Settings';
 
 import {constructArrayFromFirebaseArray} from 'Utility'
@@ -61,6 +62,12 @@ import {constructArrayFromFirebaseArray} from 'Utility'
           likes :(action.payload.likes)?action.payload.likes:[], 
           redirect_to_detail:true
         }
+      case ARTICLE_COMMENTS_UPDATED:
+            return{
+                ...state,
+                comments :(action.payload)
+          ? constructArrayFromFirebaseArray(action.payload):[],
+      }
      
       default:
         return state;

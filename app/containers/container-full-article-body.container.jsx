@@ -21,11 +21,11 @@ class FullArticleBody extends Component{
                     <p>{ReactHtmlParser(htmlText)}</p>
                     <p>Posted  by: {user.name} </p>
                     <div>
-                <span className="badge"> {formatDate(date_of_creation)}</span><div className="pull-right">
-                <span className="label label-default">alice</span>
-                <span className="label label-primary">{topic.name}</span> <span className="label label-success">blog</span> 
-                <span className="label label-info">personal</span> <span className="label label-warning">Warning</span>
-                <span className="label label-danger">Danger</span></div>         
+                        <span className="badge"> {formatDate(date_of_creation)}</span><div className="pull-right">
+                        <span className="label label-default">alice</span>
+                        <span className="label label-primary">{topic.name}</span> <span className="label label-success">blog</span> 
+                        <span className="label label-info">personal</span> <span className="label label-warning">Warning</span>
+                        <span className="label label-danger">Danger</span></div>         
                     </div>
                     <hr/>
                 </div>

@@ -14,7 +14,7 @@ import React,{Component} from 'react'
 import ReactDOM from 'react-dom'
 import 'bootstrap/dist/css/bootstrap.css';
 // import {BrowserRouter as Router ,Route,IndexRoute,hashHistory} from 'react-router';
-import {BrowserRouter,Route,Switch} from 'react-router-dom';
+import {BrowserRouter,Route,Switch,hashHistory} from 'react-router-dom';
 import {config} from 'ConfigureStore';
 import {Provider} from 'react-redux';
 import IndexContainer from 'IndexContainer'
@@ -23,10 +23,11 @@ import ShareKnowlegeOptions  from 'ShareKnowlegeOptions';
 
 
 
+
 const store = config();
-store.subscribe(()=>{
-  console.log("new state ==>",store.getState())
-});
+// store.subscribe(()=>{
+//   console.log("new state ==>",store.getState())
+// });
 
 
 
@@ -63,7 +64,7 @@ class App extends Component{
 
 
 ReactDOM.render(
-  <BrowserRouter>
+  <BrowserRouter history={hashHistory}>
     <Provider store={store}>
       <App/>
     </Provider>

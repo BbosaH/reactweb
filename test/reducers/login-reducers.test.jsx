@@ -8,7 +8,7 @@
  * @Last modified time: 2017-10-15T07:15:26+03:00
  */
 import {assert} from 'chai'
-import {changeEmailReducer,changePasswordReducer,loginReducer} from "LoginReducers"
+import {changeEmailReducer,changePasswordReducer,loginReducer} from "LoginReducer"
 
 describe("LoginReducerTests",()=>{
    describe('changeEmailReducer',()=>{

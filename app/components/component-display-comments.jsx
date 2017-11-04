@@ -44,8 +44,8 @@ export default connect(
   (state)=>{
     
     const{articleViewReducer,displayCommentsReducer}=state;
-    const {comments}= displayCommentsReducer;
-    const {id}=articleViewReducer;
+    //const {comments}= displayCommentsReducer;
+    const {id,comments}=articleViewReducer;
     const article_id =id;
 
     return{

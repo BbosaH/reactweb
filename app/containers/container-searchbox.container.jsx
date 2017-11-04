@@ -15,7 +15,7 @@
   changeSearchText=()=>{
       const {dispatch,full_articles}=this.props;
       dispatch(changeSearchTextAction(this.refs.search_text.value,full_articles))
-  }
+      }
   render(){
     return(
       <div className="container">
@@ -46,3 +46,4 @@
          }
      }
  )(SearchBox)
+

@@ -13,12 +13,20 @@
 var path = require('path');
 var webpack = require('webpack');
 
+
 module.exports =
 {
+  
   entry :{
 
     app :'./app/app.jsx',
 
+  },
+
+  externals :{
+    'react/addons':true,
+    'react/lib/ExecutionEnvironment':true,
+    'react/lib/ReactContext' : true
   },
 
   output :{
@@ -96,6 +104,7 @@ module.exports =
       FirebaseIndex :path.resolve(__dirname, 'app/firebase/index.jsx/'),
       Utility : path.resolve(__dirname, 'app/utility/funcs.jsx/'),
       Email :path.resolve(__dirname, 'mail.jsx/'),
+      Logging : path.resolve(__dirname,'app/middlewares/logging.jsx')
       
 
 

@@ -10,6 +10,7 @@ import{
          payload:article
      }
  }
+
  export const articleItemClicked=(params)=>{
   
         
@@ -22,3 +23,4 @@ import{
         }); 
     }
  }
+ 
